@@ -8,5 +8,20 @@ namespace Mini_Projet
 {
     class Departements
     {
+        private string Nom;
+        private string Code;
+
+
+        public string PropNom
+        {
+            get { return Nom; }
+            set { Nom = value; }
+        }
+        public string PropCode
+        {
+            get { return Code; }
+            set { Code = value; }
+        }
+
     }
 }

@@ -11,7 +11,7 @@ namespace Mini_Projet
     class Dal_Enseignant
     {
         private static SqlCommand MySqlCommand;
-        private static SqlCommand MySqlCommand2;
+        
 
         private static DataTable dt = new DataTable();
 
@@ -23,7 +23,16 @@ namespace Mini_Projet
             string Nom = (row["Nom"].ToString().Length != 0) ? row["Nom"].ToString() : "pas de Nom";
             CurrentEnseignants.PropNom = Nom;
 
-            
+            string Prenom = (row["Prenom"].ToString().Length != 0) ? row["Prenom"].ToString() : "pas de Prenom ";
+            CurrentEnseignants.PropPrenom = Prenom;
+
+            string Email = (row["Email"].ToString().Length != 0) ? row["Email"].ToString() : "pas d'Email";
+            CurrentEnseignants.PropEmail = Email;
+
+            string Statut = (row["Statut"].ToString().Length != 0) ? row["Statut"].ToString() : "pas de statut";
+            CurrentEnseignants.PropStatut = Statut;
+
+
             return CurrentEnseignants;
 
         }
@@ -55,7 +64,7 @@ namespace Mini_Projet
         }
 
         
-        public Enseignants GetEnseignantByNom(string Email)
+        public Enseignants GetEnseignantByEmail(string Email)
         {
             Enseignants EnseignantsSearched = new Enseignants();
 
@@ -79,11 +88,14 @@ namespace Mini_Projet
         public void AddEnseignant(Enseignants newEnseignant )
         {
 
-            MySqlCommand = new SqlCommand("insert into [Enseignants]( Nom,  )" +
-                                         "values ( @Nom, )");
+            MySqlCommand = new SqlCommand("insert into [Enseignants]( Nom,Prenom,Email,Statut  )" +
+                                         "values ( @Nom,@Prenom,@Email,@Statut )");
 
             MySqlCommand.Parameters.Add("@Nom", SqlDbType.VarChar).Value = newEnseignant.PropNom;
-            
+            MySqlCommand.Parameters.Add("@Prenom", SqlDbType.VarChar).Value = newEnseignant.PropPrenom;
+            MySqlCommand.Parameters.Add("@Email", SqlDbType.VarChar).Value = newEnseignant.PropEmail;
+            MySqlCommand.Parameters.Add("@Statut", SqlDbType.VarChar).Value = newEnseignant.PropStatut;
+
 
             DBConnection.FunctionToWrite(MySqlCommand);
 
@@ -92,7 +104,7 @@ namespace Mini_Projet
         public void DeleteEnseignant(Enseignants Individu)
         { 
             MySqlCommand = new SqlCommand("delete from [Enseignants] where Email= @Email ");
-            MySqlCommand.Parameters.Add("@Email", SqlDbType.VarChar).Value = Individu.PropNom;
+            MySqlCommand.Parameters.Add("@Email", SqlDbType.VarChar).Value = Individu.PropEmail;
             DBConnection.FunctionToWrite(MySqlCommand);
 
 
