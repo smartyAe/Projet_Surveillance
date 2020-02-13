@@ -111,38 +111,70 @@ namespace Mini_Projet
 
         private void surveillanceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Surveillance SurveillanceView = new Surveillance();
-            SurveillanceView.ShowDialog();
+            
         }
 
         private void enseignentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void departementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void sallesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void séancesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void Btn_Surveillance_Click(object sender, EventArgs e)
+        {
+            Surveillance SurveillanceView = new Surveillance(); 
+            SurveillanceView.ShowDialog();
+        }
+
+        private void Btn_Config_Click(object sender, EventArgs e)
+        {
+            Configuration Config = new Configuration();
+            Config.ShowDialog();
+        }
+
+        private void Btn_Enseignant_Click(object sender, EventArgs e)
         {
             Enseignant EnseignantView = new Enseignant();
             EnseignantView.ShowDialog();
         }
 
-        private void departementToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Departement DepartementView = new Departement();
-            DepartementView.ShowDialog();
-        }
-
-        private void sallesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Salle SalleView = new Salle();
-            SalleView.ShowDialog();
-        }
-
-        private void séancesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Btn_Seance_Click(object sender, EventArgs e)
         {
             Seance SeanceView = new Seance();
             SeanceView.ShowDialog();
         }
 
-        private void ConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Btn_Salle_Click(object sender, EventArgs e)
         {
-            Configuration Config = new Configuration();
-            Config.ShowDialog();
+            Salle SalleView = new Salle();
+            SalleView.ShowDialog();
         }
+
+        private void Btn_Departement_Click(object sender, EventArgs e)
+        {
+            Departement DepartementView = new Departement();
+            DepartementView.ShowDialog();
+        }
+
+        
     }
 }

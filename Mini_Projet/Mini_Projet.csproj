@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -22,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +33,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
@@ -58,161 +61,162 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ajouter_Enseignant.cs">
+    <Compile Include="Enseignants\Ajouter_Enseignant.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ajouter_Enseignant.Designer.cs">
+    <Compile Include="Enseignants\Ajouter_Enseignant.Designer.cs">
       <DependentUpon>Ajouter_Enseignant.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ajouter_Salle.cs">
+    <Compile Include="Salles\Ajouter_Salle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ajouter_Salle.Designer.cs">
+    <Compile Include="Salles\Ajouter_Salle.Designer.cs">
       <DependentUpon>Ajouter_Salle.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ajouter_Seance.cs">
+    <Compile Include="Seances\Ajouter_Seance.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ajouter_Seance.Designer.cs">
+    <Compile Include="Seances\Ajouter_Seance.Designer.cs">
       <DependentUpon>Ajouter_Seance.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ajouter_Surveillance.cs">
+    <Compile Include="Surveillances\Ajouter_Surveillance.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ajouter_Surveillance.Designer.cs">
+    <Compile Include="Surveillances\Ajouter_Surveillance.Designer.cs">
       <DependentUpon>Ajouter_Surveillance.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ajout_Departement.cs">
+    <Compile Include="Departements\Ajout_Departement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ajout_Departement.Designer.cs">
+    <Compile Include="Departements\Ajout_Departement.Designer.cs">
       <DependentUpon>Ajout_Departement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dal_Departement.cs" />
-    <Compile Include="Dal_Enseignant.cs" />
-    <Compile Include="Dal_Salle.cs" />
-    <Compile Include="Dal_Seance.cs" />
-    <Compile Include="Dal_Surveillance.cs" />
-    <Compile Include="DBConnection.cs" />
-    <Compile Include="Departement.cs">
+    <Compile Include="Departements\Dal_Departement.cs" />
+    <Compile Include="Enseignants\Dal_Enseignant.cs" />
+    <Compile Include="Salles\Dal_Salle.cs" />
+    <Compile Include="Seances\Dal_Seance.cs" />
+    <Compile Include="Surveillances\Dal_Surveillance.cs" />
+    <Compile Include="Configurations\DBConnection.cs" />
+    <Compile Include="Departements\Departement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Departement.Designer.cs">
+    <Compile Include="Departements\Departement.Designer.cs">
       <DependentUpon>Departement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Departements.cs" />
-    <Compile Include="Enseignants.cs" />
-    <Compile Include="Enseignant.cs">
+    <Compile Include="Departements\Departements.cs" />
+    <Compile Include="Enseignants\Enseignants.cs" />
+    <Compile Include="Enseignants\Enseignant.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Enseignant.Designer.cs">
+    <Compile Include="Enseignants\Enseignant.Designer.cs">
       <DependentUpon>Enseignant.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home.cs">
+    <Compile Include="Home\Home.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home.Designer.cs">
+    <Compile Include="Home\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modifier_Departement.cs">
+    <Compile Include="Configurations\Mailling.cs" />
+    <Compile Include="Departements\Modifier_Departement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modifier_Departement.Designer.cs">
+    <Compile Include="Departements\Modifier_Departement.Designer.cs">
       <DependentUpon>Modifier_Departement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modifier_Enseigant.cs">
+    <Compile Include="Enseignants\Modifier_Enseigant.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modifier_Enseigant.Designer.cs">
+    <Compile Include="Enseignants\Modifier_Enseigant.Designer.cs">
       <DependentUpon>Modifier_Enseigant.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modifier_Salle.cs">
+    <Compile Include="Salles\Modifier_Salle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modifier_Salle.Designer.cs">
+    <Compile Include="Salles\Modifier_Salle.Designer.cs">
       <DependentUpon>Modifier_Salle.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modifier_Seance.cs">
+    <Compile Include="Seances\Modifier_Seance.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modifier_Seance.Designer.cs">
+    <Compile Include="Seances\Modifier_Seance.Designer.cs">
       <DependentUpon>Modifier_Seance.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modifier_Surveillance.cs">
+    <Compile Include="Surveillances\Modifier_Surveillance.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modifier_Surveillance.Designer.cs">
+    <Compile Include="Surveillances\Modifier_Surveillance.Designer.cs">
       <DependentUpon>Modifier_Surveillance.cs</DependentUpon>
     </Compile>
-    <Compile Include="Configuration.cs">
+    <Compile Include="Configurations\Configuration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Configuration.Designer.cs">
+    <Compile Include="Configurations\Configuration.Designer.cs">
       <DependentUpon>Configuration.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Salle.cs">
+    <Compile Include="Salles\Salle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Salle.Designer.cs">
+    <Compile Include="Salles\Salle.Designer.cs">
       <DependentUpon>Salle.cs</DependentUpon>
     </Compile>
-    <Compile Include="Salles.cs" />
-    <Compile Include="Seance.cs">
+    <Compile Include="Salles\Salles.cs" />
+    <Compile Include="Seances\Seance.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Seance.Designer.cs">
+    <Compile Include="Seances\Seance.Designer.cs">
       <DependentUpon>Seance.cs</DependentUpon>
     </Compile>
-    <Compile Include="Seances.cs" />
-    <Compile Include="Surveillance.cs">
+    <Compile Include="Seances\Seances.cs" />
+    <Compile Include="Surveillances\Surveillance.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Surveillance.Designer.cs">
+    <Compile Include="Surveillances\Surveillance.Designer.cs">
       <DependentUpon>Surveillance.cs</DependentUpon>
     </Compile>
-    <Compile Include="Surveillances.cs" />
-    <EmbeddedResource Include="Ajouter_Enseignant.resx">
+    <Compile Include="Surveillances\Surveillances.cs" />
+    <EmbeddedResource Include="Enseignants\Ajouter_Enseignant.resx">
       <DependentUpon>Ajouter_Enseignant.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ajouter_Salle.resx">
+    <EmbeddedResource Include="Salles\Ajouter_Salle.resx">
       <DependentUpon>Ajouter_Salle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ajouter_Seance.resx">
+    <EmbeddedResource Include="Seances\Ajouter_Seance.resx">
       <DependentUpon>Ajouter_Seance.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ajouter_Surveillance.resx">
+    <EmbeddedResource Include="Surveillances\Ajouter_Surveillance.resx">
       <DependentUpon>Ajouter_Surveillance.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ajout_Departement.resx">
+    <EmbeddedResource Include="Departements\Ajout_Departement.resx">
       <DependentUpon>Ajout_Departement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Departement.resx">
+    <EmbeddedResource Include="Departements\Departement.resx">
       <DependentUpon>Departement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Enseignant.resx">
+    <EmbeddedResource Include="Enseignants\Enseignant.resx">
       <DependentUpon>Enseignant.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home.resx">
+    <EmbeddedResource Include="Home\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modifier_Departement.resx">
+    <EmbeddedResource Include="Departements\Modifier_Departement.resx">
       <DependentUpon>Modifier_Departement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modifier_Enseigant.resx">
+    <EmbeddedResource Include="Enseignants\Modifier_Enseigant.resx">
       <DependentUpon>Modifier_Enseigant.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modifier_Salle.resx">
+    <EmbeddedResource Include="Salles\Modifier_Salle.resx">
       <DependentUpon>Modifier_Salle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modifier_Seance.resx">
+    <EmbeddedResource Include="Seances\Modifier_Seance.resx">
       <DependentUpon>Modifier_Seance.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modifier_Surveillance.resx">
+    <EmbeddedResource Include="Surveillances\Modifier_Surveillance.resx">
       <DependentUpon>Modifier_Surveillance.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Configuration.resx">
+    <EmbeddedResource Include="Configurations\Configuration.resx">
       <DependentUpon>Configuration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -223,14 +227,15 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Salle.resx">
+    <EmbeddedResource Include="Salles\Salle.resx">
       <DependentUpon>Salle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Seance.resx">
+    <EmbeddedResource Include="Seances\Seance.resx">
       <DependentUpon>Seance.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Surveillance.resx">
+    <EmbeddedResource Include="Surveillances\Surveillance.resx">
       <DependentUpon>Surveillance.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -247,6 +252,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

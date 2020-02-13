@@ -123,5 +123,10 @@ namespace Mini_Projet
         {
 
         }
+
+        private void Btn_Supprimer_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
