@@ -16,5 +16,10 @@ namespace Mini_Projet
         {
             InitializeComponent();
         }
+
+        private void Configuration_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

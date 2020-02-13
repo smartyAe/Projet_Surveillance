@@ -128,13 +128,14 @@ namespace Mini_Projet
                     */
                 }
             }
-
+             
             MessageBox.Show(fileContent, "File Content at path: " + filePath, MessageBoxButtons.OK);
         
         }
 
         private void Btn_Ajouter_Click(object sender, EventArgs e)
         {
+
             Ajouter_Enseignant AjoutE = new Ajouter_Enseignant();
             AjoutE.ShowDialog();
         }
