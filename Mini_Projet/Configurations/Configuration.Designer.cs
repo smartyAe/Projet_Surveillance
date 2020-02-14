@@ -72,6 +72,7 @@
             this.Btn_Annuler.TabIndex = 5;
             this.Btn_Annuler.Text = "Annuler";
             this.Btn_Annuler.UseVisualStyleBackColor = true;
+            this.Btn_Annuler.Click += new System.EventHandler(this.Btn_Annuler_Click);
             // 
             // Btn_Validate
             // 
@@ -81,6 +82,7 @@
             this.Btn_Validate.TabIndex = 6;
             this.Btn_Validate.Text = "Valider";
             this.Btn_Validate.UseVisualStyleBackColor = true;
+            this.Btn_Validate.Click += new System.EventHandler(this.Btn_Validate_Click);
             // 
             // metroPanel1
             // 
@@ -128,6 +130,7 @@
             this.Btn_Browser.TabIndex = 2;
             this.Btn_Browser.Text = "Parcourir";
             this.Btn_Browser.UseVisualStyleBackColor = true;
+            this.Btn_Browser.Click += new System.EventHandler(this.Btn_Browser_Click);
             // 
             // Txt_Folder
             // 

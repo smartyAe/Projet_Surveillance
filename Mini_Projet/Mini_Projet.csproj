@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configurations\Configurations.cs" />
     <Compile Include="Enseignants\Ajouter_Enseignant.cs">
       <SubType>Form</SubType>
     </Compile>

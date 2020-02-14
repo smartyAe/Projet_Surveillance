@@ -111,24 +111,27 @@ namespace Mini_Projet
         {
             var fileContent = string.Empty;
             var filePath = string.Empty;
-            using (OpenFileDialog Ofd = new OpenFileDialog() { Filter = "PDF document (*.pdf)|*.pdf", ValidateNames = true, Multiselect = false }) 
-            {
+            OpenFileDialog Ofd = new OpenFileDialog();
+            Ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            Ofd.Filter = "PDF document (*.pdf)|*.pdf";
+            Ofd.ValidateNames = true;
+            Ofd.Multiselect = false;
+            
                 if (Ofd.ShowDialog() == DialogResult.OK)
                 {
                     //Get the path of specified file
                     filePath = Ofd.FileName;
 
-                 /*   //Read the contents of the file into a stream
+                  //Read the contents of the file into a stream
                     var fileStream = Ofd.OpenFile();
 
                     using (StreamReader reader = new StreamReader(fileStream))
                     {
                         fileContent = reader.ReadToEnd();
                     }
-                    */
+                    
                 }
-            }
-             
+            
             MessageBox.Show(fileContent, "File Content at path: " + filePath, MessageBoxButtons.OK);
         
         }
@@ -152,7 +155,7 @@ namespace Mini_Projet
         private void Btn_Supprimer_Click(object sender, EventArgs e)
         {
             DataRowView currentDataRowView = (DataRowView)Dgv_Enseignant.CurrentRow.DataBoundItem;
-            DAL_Enseignant.DeleteEnseignant(DAL_Enseignant.GetEnseignantByNom(currentDataRowView.Row[1].ToString()));
+            DAL_Enseignant.DeleteEnseignant(DAL_Enseignant.GetEnseignantByEmail(currentDataRowView.Row[1].ToString()));
             Dgv_Enseignant.DataSource = DAL_Enseignant.GetAllEnseignantsDataTable();
             if (DAL_Enseignant.GetAllEnseignantsDataTable().Rows.Count == 0)
             {

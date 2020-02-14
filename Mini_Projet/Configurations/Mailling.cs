@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,15 +12,15 @@ namespace Mini_Projet
     class Mailling
     {
 
-        private string[] adresses;
-        private string subject;
+        private string adresse;
+        private string subject= "Programme de surveillance";
         private string message;
         private string join;
 
-        public string[]  Propadresses
+        public string Propadresses
         {
-            get { return adresses; }
-            set { adresses = value; }
+            get { return adresse ; }
+            set { adresse  = value; }
         }
         public string Propsubject
         {
@@ -38,15 +39,10 @@ namespace Mini_Projet
         }
         public void SendMail()
         {
-            try
-            {
-                MailMessage mail = new MailMessage();
-                //ajouter les destinataires
-                foreach (string adress in adresses)
-                {
-                    mail.To.Add(adress);
-                }
 
+               MailMessage mail = new MailMessage();
+                //ajouter le  destinataire 
+                mail.To.Add(adresse); 
                 mail.Subject = subject;
                 mail.Body = message;
                 //définir l'expéditeur
@@ -54,7 +50,7 @@ namespace Mini_Projet
 
 
                 // Attach a document.  
-                mail.Attachments.Add(new Attachment(join));
+                mail.Attachments.Add(new Attachment(join,MediaTypeNames.Application.Pdf));
 
                 //définir les paramètres smtp pour l'envoi
                 SmtpClient smtpServer = new SmtpClient
@@ -68,12 +64,7 @@ namespace Mini_Projet
                 };
                 //envoi du mail
                 smtpServer.Send(mail);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-
+            
          
     }
 }

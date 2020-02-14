@@ -32,8 +32,8 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.impressionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.envoiDuProgrammeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aTousLesEnseigantsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.auxEnseignantsSelectionnésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EmailATousLesEnseigantsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EmailAuxEnseignantsSelectionnésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.affichageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.afficherTousLesEngeignantsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.afficherLesEnseignantsDunDepartementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,6 +53,7 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -67,7 +68,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
+            this.EmailALenseignantCourantToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.metroPanel1.SuspendLayout();
@@ -99,25 +100,26 @@
             // envoiDuProgrammeToolStripMenuItem
             // 
             this.envoiDuProgrammeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aTousLesEnseigantsToolStripMenuItem,
-            this.auxEnseignantsSelectionnésToolStripMenuItem});
+            this.EmailATousLesEnseigantsToolStripMenuItem,
+            this.EmailAuxEnseignantsSelectionnésToolStripMenuItem,
+            this.EmailALenseignantCourantToolStripMenuItem});
             this.envoiDuProgrammeToolStripMenuItem.Name = "envoiDuProgrammeToolStripMenuItem";
             this.envoiDuProgrammeToolStripMenuItem.Size = new System.Drawing.Size(116, 20);
             this.envoiDuProgrammeToolStripMenuItem.Text = "Envoyer  par email";
             // 
-            // aTousLesEnseigantsToolStripMenuItem
+            // EmailATousLesEnseigantsToolStripMenuItem
             // 
-            this.aTousLesEnseigantsToolStripMenuItem.Name = "aTousLesEnseigantsToolStripMenuItem";
-            this.aTousLesEnseigantsToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
-            this.aTousLesEnseigantsToolStripMenuItem.Text = "A tous les enseigants";
+            this.EmailATousLesEnseigantsToolStripMenuItem.Name = "EmailATousLesEnseigantsToolStripMenuItem";
+            this.EmailATousLesEnseigantsToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.EmailATousLesEnseigantsToolStripMenuItem.Text = "A tous les enseigants";
+            this.EmailATousLesEnseigantsToolStripMenuItem.Click += new System.EventHandler(this.EmailATousLesEnseigantsToolStripMenuItem_Click);
             // 
-            // auxEnseignantsSelectionnésToolStripMenuItem
+            // EmailAuxEnseignantsSelectionnésToolStripMenuItem
             // 
-            this.auxEnseignantsSelectionnésToolStripMenuItem.Checked = true;
-            this.auxEnseignantsSelectionnésToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.auxEnseignantsSelectionnésToolStripMenuItem.Name = "auxEnseignantsSelectionnésToolStripMenuItem";
-            this.auxEnseignantsSelectionnésToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
-            this.auxEnseignantsSelectionnésToolStripMenuItem.Text = "Aux enseignants selectionnés";
+            this.EmailAuxEnseignantsSelectionnésToolStripMenuItem.Name = "EmailAuxEnseignantsSelectionnésToolStripMenuItem";
+            this.EmailAuxEnseignantsSelectionnésToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.EmailAuxEnseignantsSelectionnésToolStripMenuItem.Text = "Aux enseignants selectionnés";
+            this.EmailAuxEnseignantsSelectionnésToolStripMenuItem.Click += new System.EventHandler(this.EmailAuxEnseignantsSelectionnésToolStripMenuItem_Click);
             // 
             // affichageToolStripMenuItem
             // 
@@ -276,6 +278,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Programmes de surveillance";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(260, 110);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 16);
+            this.label1.TabIndex = 10;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -414,13 +424,12 @@
             this.dataGridView1.Size = new System.Drawing.Size(396, 378);
             this.dataGridView1.TabIndex = 0;
             // 
-            // label1
+            // EmailALenseignantCourantToolStripMenuItem
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(260, 110);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 16);
-            this.label1.TabIndex = 10;
+            this.EmailALenseignantCourantToolStripMenuItem.Name = "EmailALenseignantCourantToolStripMenuItem";
+            this.EmailALenseignantCourantToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.EmailALenseignantCourantToolStripMenuItem.Text = "A l\'enseignant courant";
+            this.EmailALenseignantCourantToolStripMenuItem.Click += new System.EventHandler(this.EmailALenseignantCourantToolStripMenuItem_Click);
             // 
             // Surveillance
             // 
@@ -459,8 +468,8 @@
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ToolStripMenuItem impressionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem envoiDuProgrammeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aTousLesEnseigantsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem auxEnseignantsSelectionnésToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem EmailATousLesEnseigantsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem EmailAuxEnseignantsSelectionnésToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem affichageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem afficherTousLesEngeignantsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem afficherLesEnseignantsDunDepartementToolStripMenuItem;
@@ -492,6 +501,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem EmailALenseignantCourantToolStripMenuItem;
     }
 }
 

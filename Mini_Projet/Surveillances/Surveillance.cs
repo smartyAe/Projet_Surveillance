@@ -13,10 +13,15 @@ namespace Mini_Projet
     public partial class Surveillance : MetroFramework.Forms.MetroForm 
     {
         private int childFormNumber = 0;
+        private Mailling Mail;
+        List<Enseignants> Enseignants = new List<Mini_Projet.Enseignants>();
+        Configurations.Configurations Conf;
 
         public Surveillance()
         {
             InitializeComponent();
+            Conf = new Configurations.Configurations();
+
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -48,23 +53,7 @@ namespace Mini_Projet
                 string FileName = saveFileDialog.FileName;
             }
         }
-
-        private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void CutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
+  
 /*
         private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -127,6 +116,36 @@ namespace Mini_Projet
         private void Btn_Supprimer_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void EmailATousLesEnseigantsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach(Enseignants E in Enseignants)
+            {
+                Mail = new Mailling();
+                Mail.Propadresses = E.PropEmail;
+                Mail.Propmessage = "";
+                Mail.Propjoin = "";
+            }
+        }
+
+        private void EmailAuxEnseignantsSelectionnésToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (Enseignants E in Enseignants)
+            {
+                Mail = new Mailling();
+                Mail.Propadresses = E.PropEmail;
+                Mail.Propmessage = "";
+                Mail.Propjoin = "";
+            }
+        }
+
+        private void EmailALenseignantCourantToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Mail = new Mailling();
+            Mail.Propadresses = "";
+            Mail.Propmessage = "";
+            Mail.Propjoin = "";
         }
     }
 }
