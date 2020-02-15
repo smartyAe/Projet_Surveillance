@@ -16,5 +16,10 @@ namespace Mini_Projet
         {
             InitializeComponent();
         }
+
+        private void Ajouter_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

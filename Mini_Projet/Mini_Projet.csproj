@@ -48,8 +48,11 @@
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -67,6 +70,12 @@
     </Compile>
     <Compile Include="Enseignants\Ajouter_Enseignant.Designer.cs">
       <DependentUpon>Ajouter_Enseignant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper.cs" />
+    <Compile Include="MiniProjetDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MiniProjetDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Salles\Ajouter_Salle.cs">
       <SubType>Form</SubType>
@@ -171,6 +180,12 @@
       <DependentUpon>Seance.cs</DependentUpon>
     </Compile>
     <Compile Include="Seances\Seances.cs" />
+    <Compile Include="Surveillances\Programmes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Surveillances\Programmes.Designer.cs">
+      <DependentUpon>Programmes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Surveillances\Surveillance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,10 +251,27 @@
     <EmbeddedResource Include="Seances\Seance.resx">
       <DependentUpon>Seance.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Surveillances\Programmes.rdlc" />
+    <EmbeddedResource Include="Surveillances\Programmes.resx">
+      <DependentUpon>Programmes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Surveillances\Surveillance.resx">
       <DependentUpon>Surveillance.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="MiniProjetDataSet.xsc">
+      <DependentUpon>MiniProjetDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MiniProjetDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MiniProjetDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MiniProjetDataSet.xss">
+      <DependentUpon>MiniProjetDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Mini_Projet.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\Mini_Projet.Properties.Settings.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -253,7 +285,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="MiniProjet.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

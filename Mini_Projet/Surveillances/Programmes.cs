@@ -8,13 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Surveillance
+namespace Mini_Projet.Surveillances
 {
-    public partial class Form1 : Form
+    public partial class Programmes : MetroFramework.Forms.MetroForm
     {
-        public Form1()
+        public Programmes()
         {
             InitializeComponent();
+        }
+
+        private void Programmes_Load(object sender, EventArgs e)
+        {
+
+            this.reportViewer1.RefreshReport();
         }
     }
 }

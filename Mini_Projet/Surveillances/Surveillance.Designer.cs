@@ -10,7 +10,7 @@
         /// <summary>
         /// Nettoyage des ressources utilisées.
         /// </summary>
-        /// <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
+        /// <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -32,50 +32,44 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.impressionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.envoiDuProgrammeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.EmailATousLesEnseigantsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.EmailAuxEnseignantsSelectionnésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.affichageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.afficherTousLesEngeignantsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.afficherLesEnseignantsDunDepartementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.departement1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.departement2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.departement3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.afficherLesEnseignantsDétatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.enCoursToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.terminéToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.optionDeRechercheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rechercheParNomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rechercheParEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rechercheParDepartementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aTousLesEnseigantsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.auxEnseignantsSelectionnésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmOptionRecherche = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmRechercheNom = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmRechercheDepartement = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.LbValueDep = new System.Windows.Forms.Label();
+            this.LbValueNom = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.LbProgramme = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.CbEtat = new System.Windows.Forms.ComboBox();
+            this.LbDep = new System.Windows.Forms.Label();
+            this.LbNomEns = new System.Windows.Forms.Label();
             this.Btn_Enregistrer = new System.Windows.Forms.Button();
             this.Btn_Supprimer = new System.Windows.Forms.Button();
             this.Btn_Modifier = new System.Windows.Forms.Button();
             this.Btn_Ajouter = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.DtgListeProgrames = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.EmailALenseignantCourantToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LbListeEns = new System.Windows.Forms.Label();
+            this.TxtSearch = new System.Windows.Forms.TextBox();
+            this.DtgListeEnseignants = new System.Windows.Forms.DataGridView();
+            this.TsmRechercheEtat = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmRechercheEnCour = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmRechercheTermine = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgListeProgrames)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgListeEnseignants)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -83,8 +77,7 @@
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.impressionToolStripMenuItem,
             this.envoiDuProgrammeToolStripMenuItem,
-            this.affichageToolStripMenuItem,
-            this.optionDeRechercheToolStripMenuItem});
+            this.TsmOptionRecherche});
             this.menuStrip.Location = new System.Drawing.Point(20, 60);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(1085, 24);
@@ -100,123 +93,51 @@
             // envoiDuProgrammeToolStripMenuItem
             // 
             this.envoiDuProgrammeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.EmailATousLesEnseigantsToolStripMenuItem,
-            this.EmailAuxEnseignantsSelectionnésToolStripMenuItem,
-            this.EmailALenseignantCourantToolStripMenuItem});
+            this.aTousLesEnseigantsToolStripMenuItem,
+            this.auxEnseignantsSelectionnésToolStripMenuItem});
             this.envoiDuProgrammeToolStripMenuItem.Name = "envoiDuProgrammeToolStripMenuItem";
             this.envoiDuProgrammeToolStripMenuItem.Size = new System.Drawing.Size(116, 20);
             this.envoiDuProgrammeToolStripMenuItem.Text = "Envoyer  par email";
             // 
-            // EmailATousLesEnseigantsToolStripMenuItem
+            // aTousLesEnseigantsToolStripMenuItem
             // 
-            this.EmailATousLesEnseigantsToolStripMenuItem.Name = "EmailATousLesEnseigantsToolStripMenuItem";
-            this.EmailATousLesEnseigantsToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
-            this.EmailATousLesEnseigantsToolStripMenuItem.Text = "A tous les enseigants";
-            this.EmailATousLesEnseigantsToolStripMenuItem.Click += new System.EventHandler(this.EmailATousLesEnseigantsToolStripMenuItem_Click);
+            this.aTousLesEnseigantsToolStripMenuItem.Name = "aTousLesEnseigantsToolStripMenuItem";
+            this.aTousLesEnseigantsToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.aTousLesEnseigantsToolStripMenuItem.Text = "A tous les enseigants";
             // 
-            // EmailAuxEnseignantsSelectionnésToolStripMenuItem
+            // auxEnseignantsSelectionnésToolStripMenuItem
             // 
-            this.EmailAuxEnseignantsSelectionnésToolStripMenuItem.Name = "EmailAuxEnseignantsSelectionnésToolStripMenuItem";
-            this.EmailAuxEnseignantsSelectionnésToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
-            this.EmailAuxEnseignantsSelectionnésToolStripMenuItem.Text = "Aux enseignants selectionnés";
-            this.EmailAuxEnseignantsSelectionnésToolStripMenuItem.Click += new System.EventHandler(this.EmailAuxEnseignantsSelectionnésToolStripMenuItem_Click);
+            this.auxEnseignantsSelectionnésToolStripMenuItem.Checked = true;
+            this.auxEnseignantsSelectionnésToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.auxEnseignantsSelectionnésToolStripMenuItem.Name = "auxEnseignantsSelectionnésToolStripMenuItem";
+            this.auxEnseignantsSelectionnésToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.auxEnseignantsSelectionnésToolStripMenuItem.Text = "Aux enseignants selectionnés";
             // 
-            // affichageToolStripMenuItem
+            // TsmOptionRecherche
             // 
-            this.affichageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.afficherTousLesEngeignantsToolStripMenuItem,
-            this.afficherLesEnseignantsDunDepartementToolStripMenuItem,
-            this.afficherLesEnseignantsDétatToolStripMenuItem});
-            this.affichageToolStripMenuItem.Name = "affichageToolStripMenuItem";
-            this.affichageToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
-            this.affichageToolStripMenuItem.Text = "Affichage";
+            this.TsmOptionRecherche.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsmRechercheNom,
+            this.TsmRechercheDepartement,
+            this.TsmRechercheEtat});
+            this.TsmOptionRecherche.Name = "TsmOptionRecherche";
+            this.TsmOptionRecherche.Size = new System.Drawing.Size(127, 20);
+            this.TsmOptionRecherche.Text = "Option de recherche";
             // 
-            // afficherTousLesEngeignantsToolStripMenuItem
+            // TsmRechercheNom
             // 
-            this.afficherTousLesEngeignantsToolStripMenuItem.Checked = true;
-            this.afficherTousLesEngeignantsToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.afficherTousLesEngeignantsToolStripMenuItem.Name = "afficherTousLesEngeignantsToolStripMenuItem";
-            this.afficherTousLesEngeignantsToolStripMenuItem.Size = new System.Drawing.Size(300, 22);
-            this.afficherTousLesEngeignantsToolStripMenuItem.Text = "Afficher tous les engeignants";
+            this.TsmRechercheNom.Checked = true;
+            this.TsmRechercheNom.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.TsmRechercheNom.Name = "TsmRechercheNom";
+            this.TsmRechercheNom.Size = new System.Drawing.Size(220, 22);
+            this.TsmRechercheNom.Text = "Recherche par nom";
+            this.TsmRechercheNom.Click += new System.EventHandler(this.TmsOptionRecherche_ItemClicked);
             // 
-            // afficherLesEnseignantsDunDepartementToolStripMenuItem
+            // TsmRechercheDepartement
             // 
-            this.afficherLesEnseignantsDunDepartementToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.departement1ToolStripMenuItem,
-            this.departement2ToolStripMenuItem,
-            this.departement3ToolStripMenuItem});
-            this.afficherLesEnseignantsDunDepartementToolStripMenuItem.Name = "afficherLesEnseignantsDunDepartementToolStripMenuItem";
-            this.afficherLesEnseignantsDunDepartementToolStripMenuItem.Size = new System.Drawing.Size(300, 22);
-            this.afficherLesEnseignantsDunDepartementToolStripMenuItem.Text = "Afficher les enseignants d\'un departement ";
-            // 
-            // departement1ToolStripMenuItem
-            // 
-            this.departement1ToolStripMenuItem.Name = "departement1ToolStripMenuItem";
-            this.departement1ToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.departement1ToolStripMenuItem.Text = "Departement1";
-            // 
-            // departement2ToolStripMenuItem
-            // 
-            this.departement2ToolStripMenuItem.Name = "departement2ToolStripMenuItem";
-            this.departement2ToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.departement2ToolStripMenuItem.Text = "Departement2";
-            // 
-            // departement3ToolStripMenuItem
-            // 
-            this.departement3ToolStripMenuItem.Name = "departement3ToolStripMenuItem";
-            this.departement3ToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.departement3ToolStripMenuItem.Text = "Departement3";
-            // 
-            // afficherLesEnseignantsDétatToolStripMenuItem
-            // 
-            this.afficherLesEnseignantsDétatToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.enCoursToolStripMenuItem,
-            this.terminéToolStripMenuItem});
-            this.afficherLesEnseignantsDétatToolStripMenuItem.Name = "afficherLesEnseignantsDétatToolStripMenuItem";
-            this.afficherLesEnseignantsDétatToolStripMenuItem.Size = new System.Drawing.Size(300, 22);
-            this.afficherLesEnseignantsDétatToolStripMenuItem.Text = "Afficher les enseignants d\'état";
-            // 
-            // enCoursToolStripMenuItem
-            // 
-            this.enCoursToolStripMenuItem.Name = "enCoursToolStripMenuItem";
-            this.enCoursToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.enCoursToolStripMenuItem.Text = "En cours";
-            // 
-            // terminéToolStripMenuItem
-            // 
-            this.terminéToolStripMenuItem.Name = "terminéToolStripMenuItem";
-            this.terminéToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.terminéToolStripMenuItem.Text = "Terminé";
-            // 
-            // optionDeRechercheToolStripMenuItem
-            // 
-            this.optionDeRechercheToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.rechercheParNomToolStripMenuItem,
-            this.rechercheParEmailToolStripMenuItem,
-            this.rechercheParDepartementToolStripMenuItem});
-            this.optionDeRechercheToolStripMenuItem.Name = "optionDeRechercheToolStripMenuItem";
-            this.optionDeRechercheToolStripMenuItem.Size = new System.Drawing.Size(127, 20);
-            this.optionDeRechercheToolStripMenuItem.Text = "Option de recherche";
-            // 
-            // rechercheParNomToolStripMenuItem
-            // 
-            this.rechercheParNomToolStripMenuItem.Checked = true;
-            this.rechercheParNomToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.rechercheParNomToolStripMenuItem.Name = "rechercheParNomToolStripMenuItem";
-            this.rechercheParNomToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
-            this.rechercheParNomToolStripMenuItem.Text = "Recherche par nom";
-            // 
-            // rechercheParEmailToolStripMenuItem
-            // 
-            this.rechercheParEmailToolStripMenuItem.Name = "rechercheParEmailToolStripMenuItem";
-            this.rechercheParEmailToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
-            this.rechercheParEmailToolStripMenuItem.Text = "Recherche par email";
-            // 
-            // rechercheParDepartementToolStripMenuItem
-            // 
-            this.rechercheParDepartementToolStripMenuItem.Name = "rechercheParDepartementToolStripMenuItem";
-            this.rechercheParDepartementToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
-            this.rechercheParDepartementToolStripMenuItem.Text = "Recherche par departement";
+            this.TsmRechercheDepartement.Name = "TsmRechercheDepartement";
+            this.TsmRechercheDepartement.Size = new System.Drawing.Size(220, 22);
+            this.TsmRechercheDepartement.Text = "Recherche par departement";
+            this.TsmRechercheDepartement.Click += new System.EventHandler(this.TmsOptionRecherche_ItemClicked);
             // 
             // statusStrip
             // 
@@ -259,17 +180,19 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.LbValueDep);
+            this.groupBox2.Controls.Add(this.LbValueNom);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.LbProgramme);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.comboBox3);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.CbEtat);
+            this.groupBox2.Controls.Add(this.LbDep);
+            this.groupBox2.Controls.Add(this.LbNomEns);
             this.groupBox2.Controls.Add(this.Btn_Enregistrer);
             this.groupBox2.Controls.Add(this.Btn_Supprimer);
             this.groupBox2.Controls.Add(this.Btn_Modifier);
             this.groupBox2.Controls.Add(this.Btn_Ajouter);
-            this.groupBox2.Controls.Add(this.dataGridView2);
+            this.groupBox2.Controls.Add(this.DtgListeProgrames);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(435, 9);
             this.groupBox2.Name = "groupBox2";
@@ -277,6 +200,26 @@
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Programmes de surveillance";
+            // 
+            // LbValueDep
+            // 
+            this.LbValueDep.AutoSize = true;
+            this.LbValueDep.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbValueDep.Location = new System.Drawing.Point(207, 144);
+            this.LbValueDep.Name = "LbValueDep";
+            this.LbValueDep.Size = new System.Drawing.Size(181, 24);
+            this.LbValueDep.TabIndex = 12;
+            this.LbValueDep.Text = "Pas de Departement";
+            // 
+            // LbValueNom
+            // 
+            this.LbValueNom.AutoSize = true;
+            this.LbValueNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbValueNom.Location = new System.Drawing.Point(207, 102);
+            this.LbValueNom.Name = "LbValueNom";
+            this.LbValueNom.Size = new System.Drawing.Size(111, 24);
+            this.LbValueNom.TabIndex = 11;
+            this.LbValueNom.Text = "Pas de nom";
             // 
             // label1
             // 
@@ -286,15 +229,15 @@
             this.label1.Size = new System.Drawing.Size(0, 16);
             this.label1.TabIndex = 10;
             // 
-            // label7
+            // LbProgramme
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(67, 32);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(433, 37);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Programme de l\'enseignant";
+            this.LbProgramme.AutoSize = true;
+            this.LbProgramme.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbProgramme.Location = new System.Drawing.Point(67, 32);
+            this.LbProgramme.Name = "LbProgramme";
+            this.LbProgramme.Size = new System.Drawing.Size(433, 37);
+            this.LbProgramme.TabIndex = 9;
+            this.LbProgramme.Text = "Programme de l\'enseignant";
             // 
             // label6
             // 
@@ -306,36 +249,36 @@
             this.label6.TabIndex = 8;
             this.label6.Text = "Etat de finalisation";
             // 
-            // comboBox3
+            // CbEtat
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.CbEtat.FormattingEnabled = true;
+            this.CbEtat.Items.AddRange(new object[] {
             "En cours",
-            "Terminé"});
-            this.comboBox3.Location = new System.Drawing.Point(488, 108);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(136, 24);
-            this.comboBox3.TabIndex = 7;
+            "Termine"});
+            this.CbEtat.Location = new System.Drawing.Point(488, 108);
+            this.CbEtat.Name = "CbEtat";
+            this.CbEtat.Size = new System.Drawing.Size(136, 24);
+            this.CbEtat.TabIndex = 7;
             // 
-            // label5
+            // LbDep
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 144);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(206, 29);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Département        :";
+            this.LbDep.AutoSize = true;
+            this.LbDep.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbDep.Location = new System.Drawing.Point(6, 144);
+            this.LbDep.Name = "LbDep";
+            this.LbDep.Size = new System.Drawing.Size(170, 25);
+            this.LbDep.TabIndex = 6;
+            this.LbDep.Text = "Département        :";
             // 
-            // label4
+            // LbNomEns
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 101);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(208, 29);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Nom  Prénom(s)  :";
+            this.LbNomEns.AutoSize = true;
+            this.LbNomEns.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbNomEns.Location = new System.Drawing.Point(6, 101);
+            this.LbNomEns.Name = "LbNomEns";
+            this.LbNomEns.Size = new System.Drawing.Size(171, 25);
+            this.LbNomEns.TabIndex = 5;
+            this.LbNomEns.Text = "Nom  Prénom(s)  :";
             // 
             // Btn_Enregistrer
             // 
@@ -376,20 +319,23 @@
             this.Btn_Ajouter.UseVisualStyleBackColor = true;
             this.Btn_Ajouter.Click += new System.EventHandler(this.Btn_Ajouter_Click);
             // 
-            // dataGridView2
+            // DtgListeProgrames
             // 
-            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(6, 196);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(464, 295);
-            this.dataGridView2.TabIndex = 0;
+            this.DtgListeProgrames.AllowUserToAddRows = false;
+            this.DtgListeProgrames.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.DtgListeProgrames.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgListeProgrames.Location = new System.Drawing.Point(6, 196);
+            this.DtgListeProgrames.Name = "DtgListeProgrames";
+            this.DtgListeProgrames.RowHeadersVisible = false;
+            this.DtgListeProgrames.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgListeProgrames.Size = new System.Drawing.Size(464, 295);
+            this.DtgListeProgrames.TabIndex = 0;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.LbListeEns);
+            this.groupBox1.Controls.Add(this.TxtSearch);
+            this.groupBox1.Controls.Add(this.DtgListeEnseignants);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(9, 9);
             this.groupBox1.Name = "groupBox1";
@@ -398,38 +344,60 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Enseignants";
             // 
-            // label2
+            // LbListeEns
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(27, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(346, 37);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Liste des enseignants";
+            this.LbListeEns.AutoSize = true;
+            this.LbListeEns.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbListeEns.Location = new System.Drawing.Point(27, 32);
+            this.LbListeEns.Name = "LbListeEns";
+            this.LbListeEns.Size = new System.Drawing.Size(346, 37);
+            this.LbListeEns.TabIndex = 4;
+            this.LbListeEns.Text = "Liste des enseignants";
             // 
-            // textBox1
+            // TxtSearch
             // 
-            this.textBox1.Location = new System.Drawing.Point(51, 85);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(304, 22);
-            this.textBox1.TabIndex = 2;
+            this.TxtSearch.Location = new System.Drawing.Point(51, 85);
+            this.TxtSearch.Name = "TxtSearch";
+            this.TxtSearch.Size = new System.Drawing.Size(304, 22);
+            this.TxtSearch.TabIndex = 2;
+            this.TxtSearch.TextChanged += new System.EventHandler(this.TxtSearch_value_change);
             // 
-            // dataGridView1
+            // DtgListeEnseignants
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(7, 113);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(396, 378);
-            this.dataGridView1.TabIndex = 0;
+            this.DtgListeEnseignants.AllowUserToAddRows = false;
+            this.DtgListeEnseignants.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.DtgListeEnseignants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgListeEnseignants.Location = new System.Drawing.Point(7, 113);
+            this.DtgListeEnseignants.Name = "DtgListeEnseignants";
+            this.DtgListeEnseignants.RowHeadersVisible = false;
+            this.DtgListeEnseignants.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgListeEnseignants.Size = new System.Drawing.Size(396, 378);
+            this.DtgListeEnseignants.TabIndex = 0;
+            this.DtgListeEnseignants.SelectionChanged += new System.EventHandler(this.DtgListeEns_SelectionChanged);
             // 
-            // EmailALenseignantCourantToolStripMenuItem
+            // TsmRechercheEtat
             // 
-            this.EmailALenseignantCourantToolStripMenuItem.Name = "EmailALenseignantCourantToolStripMenuItem";
-            this.EmailALenseignantCourantToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
-            this.EmailALenseignantCourantToolStripMenuItem.Text = "A l\'enseignant courant";
-            this.EmailALenseignantCourantToolStripMenuItem.Click += new System.EventHandler(this.EmailALenseignantCourantToolStripMenuItem_Click);
+            this.TsmRechercheEtat.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsmRechercheEnCour,
+            this.TsmRechercheTermine});
+            this.TsmRechercheEtat.Name = "TsmRechercheEtat";
+            this.TsmRechercheEtat.Size = new System.Drawing.Size(220, 22);
+            this.TsmRechercheEtat.Text = "Recherche par etat";
+            this.TsmRechercheEtat.Click += new System.EventHandler(this.TmsOptionRecherche_ItemClicked);
+            // 
+            // TsmRechercheEnCour
+            // 
+            this.TsmRechercheEnCour.Name = "TsmRechercheEnCour";
+            this.TsmRechercheEnCour.Size = new System.Drawing.Size(180, 22);
+            this.TsmRechercheEnCour.Text = "En Cour";
+            this.TsmRechercheEnCour.Click += new System.EventHandler(this.TmsOptionRecherche_ItemClicked);
+            // 
+            // TsmRechercheTermine
+            // 
+            this.TsmRechercheTermine.Name = "TsmRechercheTermine";
+            this.TsmRechercheTermine.Size = new System.Drawing.Size(180, 22);
+            this.TsmRechercheTermine.Text = "Termine";
+            this.TsmRechercheTermine.Click += new System.EventHandler(this.TmsOptionRecherche_ItemClicked);
             // 
             // Surveillance
             // 
@@ -444,6 +412,7 @@
             this.Name = "Surveillance";
             this.Text = "Surveillance";
             this.TransparencyKey = System.Drawing.Color.Empty;
+            this.Load += new System.EventHandler(this.Surveillance_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
@@ -451,10 +420,10 @@
             this.metroPanel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgListeProgrames)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgListeEnseignants)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -468,42 +437,33 @@
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ToolStripMenuItem impressionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem envoiDuProgrammeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem EmailATousLesEnseigantsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem EmailAuxEnseignantsSelectionnésToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem affichageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem afficherTousLesEngeignantsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem afficherLesEnseignantsDunDepartementToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem departement1ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem departement2ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem departement3ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem afficherLesEnseignantsDétatToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem enCoursToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem terminéToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem optionDeRechercheToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rechercheParNomToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rechercheParEmailToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rechercheParDepartementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aTousLesEnseigantsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem auxEnseignantsSelectionnésToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TsmOptionRecherche;
+        private System.Windows.Forms.ToolStripMenuItem TsmRechercheNom;
+        private System.Windows.Forms.ToolStripMenuItem TsmRechercheDepartement;
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
         private MetroFramework.Controls.MetroPanel metroPanel1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label LbProgramme;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox CbEtat;
+        private System.Windows.Forms.Label LbDep;
+        private System.Windows.Forms.Label LbNomEns;
         private System.Windows.Forms.Button Btn_Enregistrer;
         private System.Windows.Forms.Button Btn_Supprimer;
         private System.Windows.Forms.Button Btn_Modifier;
         private System.Windows.Forms.Button Btn_Ajouter;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView DtgListeProgrames;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label LbListeEns;
+        private System.Windows.Forms.TextBox TxtSearch;
+        private System.Windows.Forms.DataGridView DtgListeEnseignants;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ToolStripMenuItem EmailALenseignantCourantToolStripMenuItem;
+        private System.Windows.Forms.Label LbValueDep;
+        private System.Windows.Forms.Label LbValueNom;
+        private System.Windows.Forms.ToolStripMenuItem TsmRechercheEtat;
+        private System.Windows.Forms.ToolStripMenuItem TsmRechercheEnCour;
+        private System.Windows.Forms.ToolStripMenuItem TsmRechercheTermine;
     }
 }
-
-
-

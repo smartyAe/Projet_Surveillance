@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +10,8 @@ namespace Mini_Projet
 {
     class DBConnection
     {
-        private static string StrConnexion = @"Data Source=CKA-SMART;Initial Catalog=MiniProjet;Integrated Security=True";
-        private static SqlConnection Connection = new SqlConnection(StrConnexion);
+        private static string StrConnexion = @"Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Users\LMIJ\Documents\MiniProjet.accdb ";
+        private static OleDbConnection Connection = new OleDbConnection(StrConnexion);
 
 
         //Ouverture de la connection
@@ -22,7 +22,7 @@ namespace Mini_Projet
                 Connection.Open();
                 return true;
             }
-            catch (SqlException e)
+            catch (OleDbException e)
             {
                 Console.WriteLine(e.Message);
                 return false;
@@ -46,7 +46,7 @@ namespace Mini_Projet
         }
 
         //Ecriture
-        public static int FunctionToWrite(SqlCommand CommandRequest)
+        public static int FunctionToWrite(OleDbCommand CommandRequest)
         {
 
             int NumberOfRows = 0;
@@ -86,7 +86,7 @@ namespace Mini_Projet
             return NumberOfRows;
 
         }
-        public static int FunctionToWriteScalar(SqlCommand CommandRequest)
+        public static int FunctionToWriteScalar(OleDbCommand CommandRequest)
         {
 
             int NumberOfRows = 0;
@@ -128,7 +128,7 @@ namespace Mini_Projet
         }
 
         //lecture
-        public static DataTable FunctionToRead(SqlCommand CommanReqRead)
+        public static DataTable FunctionToRead(OleDbCommand CommanReqRead)
         {
 
             DataTable dt = new DataTable();
@@ -141,7 +141,7 @@ namespace Mini_Projet
                 {
 
                     //execution de la commande 
-                    SqlDataReader dre = CommanReqRead.ExecuteReader();
+                    OleDbDataReader dre = CommanReqRead.ExecuteReader();
 
                     dt.Load(dre);
 

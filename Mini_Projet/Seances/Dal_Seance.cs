@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +10,8 @@ namespace Mini_Projet
 {
     class Dal_Seance
     {
-        private static SqlCommand MySqlCommand;
-         
+        private static OleDbCommand MyOleDbCommand;
+
 
         private static DataTable dt = new DataTable();
 
@@ -30,7 +30,7 @@ namespace Mini_Projet
             CurrentSeances.PropHeureDebut = HeureD;
 
             string HeureF = (row["HeureFin"].ToString().Length != 0) ? row["HeureFin"].ToString() : "pas d'heure";
-            CurrentSeances.PropHeureFin= HeureF;
+            CurrentSeances.PropHeureFin = HeureF;
 
 
             return CurrentSeances;
@@ -42,9 +42,9 @@ namespace Mini_Projet
         {
             List<Seances> AllSeances = new List<Seances>();
 
-            MySqlCommand = new SqlCommand("select * from [Seances]");
+            MyOleDbCommand = new OleDbCommand("select * from [Seances]");
 
-            dt = DBConnection.FunctionToRead(MySqlCommand);
+            dt = DBConnection.FunctionToRead(MyOleDbCommand);
 
             foreach (DataRow row in dt.Rows)
             {
@@ -56,9 +56,9 @@ namespace Mini_Projet
 
         public DataTable GetAllSeancesDataTable()
         {
-            MySqlCommand = new SqlCommand("select * from [Seances]");
+            MyOleDbCommand = new OleDbCommand("select * from [Seances]");
 
-            dt = DBConnection.FunctionToRead(MySqlCommand);
+            dt = DBConnection.FunctionToRead(MyOleDbCommand);
 
             return dt;
         }
@@ -68,11 +68,11 @@ namespace Mini_Projet
         {
             Seances SeancesSearched = new Seances();
 
-            MySqlCommand = new SqlCommand("select * from [Seances] where Nom = @Nom");
+            MyOleDbCommand = new OleDbCommand("select * from [Seances] where Nom = @Nom");
 
-            MySqlCommand.Parameters.Add("@Nom", SqlDbType.VarChar).Value = Nom;
+            MyOleDbCommand.Parameters.Add("@Nom", OleDbType.VarChar).Value = Nom;
 
-            dt = DBConnection.FunctionToRead(MySqlCommand);
+            dt = DBConnection.FunctionToRead(MyOleDbCommand);
 
             foreach (DataRow row in dt.Rows)
             {
@@ -88,24 +88,24 @@ namespace Mini_Projet
         public void AddSeance(Seances newSeance)
         {
 
-            MySqlCommand = new SqlCommand("insert into [Seances]( Nom,Code  )" +
-                                         "values ( @Nom,@Code )");
+            MyOleDbCommand = new OleDbCommand("insert into [Seances]( Nom,Code, HeureDebut, HeureFin  )" +
+                                         "values ( @Nom,@Code, @HeureDebut, @HeureFin )");
 
-            MySqlCommand.Parameters.Add("@Nom", SqlDbType.VarChar).Value = newSeance.PropNom;
-            MySqlCommand.Parameters.Add("@Code", SqlDbType.VarChar).Value = newSeance.PropCode; 
-            MySqlCommand.Parameters.Add("@HeureDebut", SqlDbType.DateTime).Value = newSeance.PropHeureDebut;
-            MySqlCommand.Parameters.Add("@HeureFin", SqlDbType.DateTime).Value = newSeance.PropHeureFin;
+            MyOleDbCommand.Parameters.Add("@Nom", OleDbType.VarChar).Value = newSeance.PropNom;
+            MyOleDbCommand.Parameters.Add("@Code", OleDbType.VarChar).Value = newSeance.PropCode;
+            MyOleDbCommand.Parameters.Add("@HeureDebut", OleDbType.DBTime).Value = newSeance.PropHeureDebut;
+            MyOleDbCommand.Parameters.Add("@HeureFin", OleDbType.DBTime).Value = newSeance.PropHeureFin;
 
 
-            DBConnection.FunctionToWrite(MySqlCommand);
+            DBConnection.FunctionToWrite(MyOleDbCommand);
 
         }
 
         public void DeleteSeance(Seances Seance)
         {
-            MySqlCommand = new SqlCommand("delete from [Seances] where Nom= @Nom ");
-            MySqlCommand.Parameters.Add("@Nom", SqlDbType.VarChar).Value = Seance.PropNom;
-            DBConnection.FunctionToWrite(MySqlCommand);
+            MyOleDbCommand = new OleDbCommand("delete from [Seances] where Nom= @Nom ");
+            MyOleDbCommand.Parameters.Add("@Nom", OleDbType.VarChar).Value = Seance.PropNom;
+            DBConnection.FunctionToWrite(MyOleDbCommand);
 
 
         }

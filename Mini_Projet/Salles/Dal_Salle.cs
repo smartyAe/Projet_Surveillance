@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +10,7 @@ namespace Mini_Projet
 {
     class Dal_Salle
     {
-        private static SqlCommand MySqlCommand;
-        private static SqlCommand MySqlCommand2;
+        private static OleDbCommand MyOleDbCommand;
 
         private static DataTable dt = new DataTable();
 
@@ -36,9 +35,9 @@ namespace Mini_Projet
         {
             List<Salles> AllSalles = new List<Salles>();
 
-            MySqlCommand = new SqlCommand("select * from [Salles]");
+            MyOleDbCommand = new OleDbCommand("select * from [Salles]");
 
-            dt = DBConnection.FunctionToRead(MySqlCommand);
+            dt = DBConnection.FunctionToRead(MyOleDbCommand);
 
             foreach (DataRow row in dt.Rows)
             {
@@ -50,9 +49,9 @@ namespace Mini_Projet
 
         public DataTable GetAllSallesDataTable()
         {
-            MySqlCommand = new SqlCommand("select * from [Salles]");
+            MyOleDbCommand = new OleDbCommand("select * from [Salles]");
 
-            dt = DBConnection.FunctionToRead(MySqlCommand);
+            dt = DBConnection.FunctionToRead(MyOleDbCommand);
 
             return dt;
         }
@@ -62,11 +61,11 @@ namespace Mini_Projet
         {
             Salles SallesSearched = new Salles();
 
-            MySqlCommand = new SqlCommand("select * from [Salles] where Nom = @Nom");
+            MyOleDbCommand = new OleDbCommand("select * from [Salles] where Nom = @Nom");
 
-            MySqlCommand.Parameters.Add("@Nom", SqlDbType.VarChar).Value = Nom;
+            MyOleDbCommand.Parameters.Add("@Nom", OleDbType.VarChar).Value = Nom;
 
-            dt = DBConnection.FunctionToRead(MySqlCommand);
+            dt = DBConnection.FunctionToRead(MyOleDbCommand);
 
             foreach (DataRow row in dt.Rows)
             {
@@ -82,22 +81,22 @@ namespace Mini_Projet
         public void AddSalle(Salles newSalle)
         {
 
-            MySqlCommand = new SqlCommand("insert into [Salles]( Nom,Type  )" +
+            MyOleDbCommand = new OleDbCommand("insert into [Salles]( Nom,Type  )" +
                                          "values ( @Nom,@Type )");
 
-            MySqlCommand.Parameters.Add("@Nom", SqlDbType.VarChar).Value = newSalle.PropNom;
-            MySqlCommand.Parameters.Add("@Type", SqlDbType.VarChar).Value = newSalle.PropType;
+            MyOleDbCommand.Parameters.Add("@Nom", OleDbType.VarChar).Value = newSalle.PropNom;
+            MyOleDbCommand.Parameters.Add("@Type", OleDbType.VarChar).Value = newSalle.PropType;
 
 
-            DBConnection.FunctionToWrite(MySqlCommand);
+            DBConnection.FunctionToWrite(MyOleDbCommand);
 
         }
 
         public void DeleteSalle(Salles Dept)
         {
-            MySqlCommand = new SqlCommand("delete from [Salles] where Nom= @Nom ");
-            MySqlCommand.Parameters.Add("@Nom", SqlDbType.VarChar).Value = Dept.PropNom;
-            DBConnection.FunctionToWrite(MySqlCommand);
+            MyOleDbCommand = new OleDbCommand("delete from [Salles] where Nom= @Nom ");
+            MyOleDbCommand.Parameters.Add("@Nom", OleDbType.VarChar).Value = Dept.PropNom;
+            DBConnection.FunctionToWrite(MyOleDbCommand);
 
 
         }

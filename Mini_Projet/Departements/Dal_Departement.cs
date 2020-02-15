@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +10,7 @@ namespace Mini_Projet
 {
     class Dal_Departement
     {
-        private static SqlCommand MySqlCommand;
-        private static SqlCommand MySqlCommand2;
+        private static OleDbCommand MyOleDbCommand;
 
         private static DataTable dt = new DataTable();
 
@@ -24,7 +23,7 @@ namespace Mini_Projet
             CurrentDepartements.PropNom = Nom;
 
             string Code = (row["Code"].ToString().Length != 0) ? row["Code"].ToString() : "pas de Code";
-            CurrentDepartements.PropCode =Code;
+            CurrentDepartements.PropCode = Code;
 
 
             return CurrentDepartements;
@@ -36,9 +35,9 @@ namespace Mini_Projet
         {
             List<Departements> AllDepartements = new List<Departements>();
 
-            MySqlCommand = new SqlCommand("select * from [Departements]");
+            MyOleDbCommand = new OleDbCommand("select * from [Departements]");
 
-            dt = DBConnection.FunctionToRead(MySqlCommand);
+            dt = DBConnection.FunctionToRead(MyOleDbCommand);
 
             foreach (DataRow row in dt.Rows)
             {
@@ -50,9 +49,9 @@ namespace Mini_Projet
 
         public DataTable GetAllDepartementsDataTable()
         {
-            MySqlCommand = new SqlCommand("select * from [Departements]");
+            MyOleDbCommand = new OleDbCommand("select * from [Departements]");
 
-            dt = DBConnection.FunctionToRead(MySqlCommand);
+            dt = DBConnection.FunctionToRead(MyOleDbCommand);
 
             return dt;
         }
@@ -62,11 +61,11 @@ namespace Mini_Projet
         {
             Departements DepartementsSearched = new Departements();
 
-            MySqlCommand = new SqlCommand("select * from [Departements] where Nom = @Nom");
+            MyOleDbCommand = new OleDbCommand("select * from [Departements] where Nom = @Nom");
 
-            MySqlCommand.Parameters.Add("@Nom", SqlDbType.VarChar).Value = Nom;
+            MyOleDbCommand.Parameters.Add("@Nom", OleDbType.VarChar).Value = Nom;
 
-            dt = DBConnection.FunctionToRead(MySqlCommand);
+            dt = DBConnection.FunctionToRead(MyOleDbCommand);
 
             foreach (DataRow row in dt.Rows)
             {
@@ -82,26 +81,25 @@ namespace Mini_Projet
         public void AddDepartement(Departements newDepartement)
         {
 
-            MySqlCommand = new SqlCommand("insert into [Departements]( Nom,Code  )" +
+            MyOleDbCommand = new OleDbCommand("insert into [Departements]( Nom,Code  )" +
                                          "values ( @Nom,@Code )");
 
-            MySqlCommand.Parameters.Add("@Nom", SqlDbType.VarChar).Value = newDepartement.PropNom;
-            MySqlCommand.Parameters.Add("@Code", SqlDbType.VarChar).Value = newDepartement.PropCode;
+            MyOleDbCommand.Parameters.Add("@Nom", OleDbType.VarChar).Value = newDepartement.PropNom;
+            MyOleDbCommand.Parameters.Add("@Code", OleDbType.VarChar).Value = newDepartement.PropCode;
 
 
-            DBConnection.FunctionToWrite(MySqlCommand);
+            DBConnection.FunctionToWrite(MyOleDbCommand);
 
         }
 
         public void DeleteDepartement(Departements Dept)
         {
-            MySqlCommand = new SqlCommand("delete from [Departements] where Nom= @Nom ");
-            MySqlCommand.Parameters.Add("@Nom", SqlDbType.VarChar).Value = Dept.PropNom;
-            DBConnection.FunctionToWrite(MySqlCommand);
-
+            MyOleDbCommand = new OleDbCommand("delete from [Departements] where Nom= @Nom ");
+            MyOleDbCommand.Parameters.Add("@Nom", OleDbType.VarChar).Value = Dept.PropNom;
+            DBConnection.FunctionToWrite(MyOleDbCommand);
 
         }
 
-        
+
     }
 }

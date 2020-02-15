@@ -116,6 +116,7 @@
             this.Ajouter.TabIndex = 9;
             this.Ajouter.Text = "Ajouter";
             this.Ajouter.UseVisualStyleBackColor = true;
+            this.Ajouter.Click += new System.EventHandler(this.Ajouter_Click);
             // 
             // Annuler
             // 

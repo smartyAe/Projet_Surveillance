@@ -23,5 +23,19 @@ namespace Mini_Projet
             set { Code = value; }
         }
 
+        public Departements() { }
+
+        public Departements(string Name, string Cod)
+        {
+            Nom = Name;
+            Code = Cod;
+        }
+
+        public Departements(Departements NewDepartement)
+        {
+            Nom = NewDepartement.PropNom;
+            Code = NewDepartement.PropCode;
+        }
+
     }
 }

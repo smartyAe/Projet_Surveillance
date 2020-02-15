@@ -16,6 +16,7 @@ namespace Mini_Projet
         private string subject= "Programme de surveillance";
         private string message;
         private string join;
+        Configurations.Configurations Conf=new Configurations.Configurations();
 
         public string Propadresses
         {
@@ -46,7 +47,7 @@ namespace Mini_Projet
                 mail.Subject = subject;
                 mail.Body = message;
                 //définir l'expéditeur
-                mail.From = new MailAddress("no-replay@mon-site.fr", "Webmaster & News");
+                mail.From = new MailAddress(Conf.LireInfo().PropEmail );
 
 
                 // Attach a document.  

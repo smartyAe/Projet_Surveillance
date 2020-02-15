@@ -14,13 +14,23 @@ namespace Mini_Projet
     {
         private int childFormNumber = 0;
         private Mailling Mail;
+        string ChoiceRecherche = "";
+        int CurrentIndex = 0;
+        DataTable CurrentDataTableEnseignant = new DataTable();
+        DataTable CurrentDataTableProgrammes = new DataTable();
+
+        DataTable CurrentDataTableEnseignantInit = new DataTable();
+        DataTable CurrentDataTableProgrammesInit = new DataTable();
+
+        Enseignants CurrentEns = null;
+
         List<Enseignants> Enseignants = new List<Mini_Projet.Enseignants>();
-        Configurations.Configurations Conf;
+        
 
         public Surveillance()
         {
             InitializeComponent();
-            Conf = new Configurations.Configurations();
+            
 
         }
 
@@ -146,6 +156,232 @@ namespace Mini_Projet
             Mail.Propadresses = "";
             Mail.Propmessage = "";
             Mail.Propjoin = "";
+        }
+
+        private void impressionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+             
+        }
+        private void TmsOptionRecherche_ItemClicked(object sender, EventArgs e)
+        {
+            ToolStripMenuItem Obj = (ToolStripMenuItem)sender;
+            foreach (ToolStripMenuItem Item in TsmOptionRecherche.DropDownItems)
+            {
+                Item.Checked = false;
+            }
+            foreach (ToolStripMenuItem Item in TsmRechercheEtat.DropDownItems)
+            {
+                Item.Checked = false;
+            }
+            Obj.Checked = true;
+            ChoiceRecherche = Obj.Text;
+            TxtSearch_value_change(null, null);
+        }
+
+        private void TxtSearch_value_change(object sender, EventArgs e)
+        {
+            List<DataGridViewRow> RowToDelete = new List<DataGridViewRow>();
+
+            if (CurrentDataTableEnseignant != null)
+            {
+                DtgListeEnseignants.DataSource = Helper.AdaptDataTableEnseignant(CurrentDataTableEnseignantInit);
+            }
+             
+
+            if (TsmRechercheNom.Checked)
+            {
+                if (TxtSearch.Text.Trim().Length != 0)
+                {
+                    try
+                    {
+                        DtgListeEnseignants.ClearSelection();
+                        foreach (DataGridViewRow row in DtgListeEnseignants.Rows)
+                        {
+                            if (row.Cells[1].Value != null && !row.Cells[1].Value.ToString().ToLower().Contains(TxtSearch.Text.Trim().ToLower()))
+                            {
+                                RowToDelete.Add(row);
+                            }
+                        }
+
+                        foreach (DataGridViewRow CurrentRow in RowToDelete)
+                        {
+                            DtgListeEnseignants.Rows.Remove(CurrentRow);
+                        }
+                    }
+                    catch (Exception exc)
+                    {
+                        MessageBox.Show("Ce Nom n'existe pas, SVP essayer encore. " + exc.StackTrace);
+                    }
+                }
+            }
+            else if (TsmRechercheEnCour.Checked)
+            {
+                try
+                {
+                    DtgListeEnseignants.ClearSelection();
+                    foreach (DataGridViewRow row in DtgListeEnseignants.Rows)
+                    {
+                        if (row.Cells[3].Value != null && !row.Cells[3].Value.ToString().ToLower().Contains("en cour"))
+                        {
+                            RowToDelete.Add(row);
+                        }
+                    }
+
+                    foreach (DataGridViewRow CurrentRow in RowToDelete)
+                    {
+                        DtgListeEnseignants.Rows.Remove(CurrentRow);
+                    }
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show("Erreur , SVP essayer encore. " + exc.StackTrace);
+                }
+            }
+            else if (TsmRechercheTermine.Checked)
+            {
+                try
+                {
+                    DtgListeEnseignants.ClearSelection();
+                    foreach (DataGridViewRow row in DtgListeEnseignants.Rows)
+                    {
+                        if (row.Cells[3].Value != null && !row.Cells[3].Value.ToString().ToLower().Contains("termine"))
+                        {
+                            RowToDelete.Add(row);
+                        }
+                    }
+
+                    foreach (DataGridViewRow CurrentRow in RowToDelete)
+                    {
+                        DtgListeEnseignants.Rows.Remove(CurrentRow);
+                    }
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show("Erreur , SVP essayer encore. " + exc.StackTrace);
+                }
+            }
+            else if (TsmRechercheDepartement.Checked)
+            {
+
+                if (TxtSearch.Text.Trim().Length != 0)
+                {
+                    try
+                    {
+                        DtgListeEnseignants.ClearSelection();
+                        foreach (DataGridViewRow row in DtgListeEnseignants.Rows)
+                        {
+                            if (row.Cells[2].Value != null && !row.Cells[2].Value.ToString().ToLower().Contains(TxtSearch.Text.Trim().ToLower()))
+                            {
+                                RowToDelete.Add(row);
+                            }
+                        }
+
+                        foreach (DataGridViewRow CurrentRow in RowToDelete)
+                        {
+                            DtgListeEnseignants.Rows.Remove(CurrentRow);
+                        }
+                    }
+                    catch (Exception exc)
+                    {
+                        MessageBox.Show("Ce Departement n'existe pas, SVP essayer encore. " + exc.StackTrace);
+                    }
+                }
+            }
+        }
+        private void Surveillance_Load(object sender, EventArgs e)
+        {
+
+            DtgListeEnseignants.DataSource = Helper.InitialiseDataGridEnseignant(CurrentDataTableEnseignant);
+            DtgListeProgrames.DataSource = Helper.InitialiseDataGridProgrammes(CurrentDataTableProgrammes);
+            FillDtgListeEnseignants();
+        }
+
+        public void FillDtgListeEnseignants()
+        {
+            CurrentDataTableEnseignant = new Dal_Enseignant().GetAllEnseignantsDataTable();
+            CurrentDataTableEnseignantInit = CurrentDataTableEnseignant;
+            CurrentDataTableEnseignant = Helper.AdaptDataTableEnseignant(CurrentDataTableEnseignant);
+
+            DtgListeEnseignants.DataSource = CurrentDataTableEnseignant;
+            ParameterDetail();
+
+        }
+
+        public void ParameterDetail()
+        {
+
+            if (DtgListeEnseignants.SelectedCells.Count > 0)
+            {
+                int IndexRowSelected = DtgListeEnseignants.SelectedCells[0].RowIndex;
+                DataGridViewRow SelectedRow = DtgListeEnseignants.Rows[IndexRowSelected];
+
+                if (SelectedRow.Cells["Nom"].Value != null
+                    && SelectedRow.Cells["Nom"].Value.ToString().Trim().Length != 0
+                    && IndexRowSelected < Helper.AllEnseignants.Count)
+                {
+                    CurrentIndex = IndexRowSelected;
+                    CurrentEns = Helper.AllEnseignants[IndexRowSelected];
+
+                    InitialChamp(CurrentEns);
+                }
+                else
+                {
+                    CurrentEns = null;
+                    InitialChamp(null);
+                }
+            }
+            else
+            {
+                CurrentEns = null;
+                InitialChamp(null);
+            }
+        }
+
+        private void InitialChamp(Enseignants CurrentEnseignant)
+        {
+            if (CurrentEnseignant != null)
+            {
+
+                if (CurrentEnseignant.PropNom != null && CurrentEnseignant.PropNom.Trim().Length != 0)
+                    LbValueNom.Text = CurrentEnseignant.PropNom + ' ' + CurrentEnseignant.PropPrenom;
+                else
+                    LbValueNom.Text = "Pas de nom";
+
+                if (CurrentEnseignant.PropDepartements != null && CurrentEnseignant.PropDepartements.PropNom.Trim().Length != 0)
+                    LbValueDep.Text = CurrentEnseignant.PropDepartements.PropNom;
+                else
+                    LbValueDep.Text = "Pas de departement";
+
+                if (CurrentEnseignant.PropStatut.ToLower().Trim().Equals("termine"))
+                    CbEtat.SelectedItem = CbEtat.Items[1];
+                else
+                    CbEtat.SelectedItem = CbEtat.Items[0];
+
+                FillDtgListeProgrames(CurrentEnseignant.PropId);
+            }
+            else
+            {
+                LbValueNom.Text = "Pas de nom";
+                LbValueDep.Text = "Pas de departement";
+                FillDtgListeProgrames(0);
+            }
+        }
+
+
+        public void FillDtgListeProgrames(int IdEns)
+        {
+
+            CurrentDataTableProgrammes = new Dal_Surveillance().GetSurveillancesByEnseignant(IdEns);
+            CurrentDataTableProgrammesInit = CurrentDataTableProgrammes;
+
+            CurrentDataTableProgrammes = Helper.AdaptDataTableProgrammes(CurrentDataTableProgrammes);
+            DtgListeProgrames.DataSource = CurrentDataTableProgrammes;
+
+        }
+
+        private void DtgListeEns_SelectionChanged(object sender, EventArgs e)
+        {
+            ParameterDetail();
         }
     }
 }

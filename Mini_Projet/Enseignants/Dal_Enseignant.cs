@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +10,8 @@ namespace Mini_Projet
 {
     class Dal_Enseignant
     {
-        private static SqlCommand MySqlCommand;
-        
+
+        private static OleDbCommand MyOleDbCommand;
 
         private static DataTable dt = new DataTable();
 
@@ -19,6 +19,9 @@ namespace Mini_Projet
         {
 
             Enseignants CurrentEnseignants = new Enseignants();
+
+            int Id = int.Parse(row["Id"].ToString());
+            CurrentEnseignants.PropId = Id;
 
             string Nom = (row["Nom"].ToString().Length != 0) ? row["Nom"].ToString() : "pas de Nom";
             CurrentEnseignants.PropNom = Nom;
@@ -32,19 +35,36 @@ namespace Mini_Projet
             string Statut = (row["Statut"].ToString().Length != 0) ? row["Statut"].ToString() : "pas de statut";
             CurrentEnseignants.PropStatut = Statut;
 
+            string CodeDep = row["CodeDep"].ToString();
+
+            if (CodeDep.Length != 0)
+            {
+
+                Departements CurrentDepartements = new Departements();
+
+                string NomDep = (row["NomDep"].ToString().Length != 0) ? row["NomDep"].ToString() : "pas de Nom de Departement";
+                CurrentDepartements.PropNom = NomDep;
+                CurrentDepartements.PropCode = CodeDep;
+
+                CurrentEnseignants.PropDepartements = new Departements(CurrentDepartements);
+            }
+            else
+            {
+                CodeDep = "pas de Departement";
+                CurrentEnseignants.PropDepartements = null;
+            }
 
             return CurrentEnseignants;
 
         }
 
-
         public List<Enseignants> GetAllEnseignantsList()
         {
             List<Enseignants> AllEnseignants = new List<Enseignants>();
 
-            MySqlCommand = new SqlCommand("select * from [Enseignants]");
+            MyOleDbCommand = new OleDbCommand("select E.Id, E.Nom, E.Prenom, E.Email, E.Statut, E.CodeDep, D.Nom as NomDep from [Enseignants] as E, Departements as D where D.Code = E.CodeDep");
 
-            dt = DBConnection.FunctionToRead(MySqlCommand);
+            dt = DBConnection.FunctionToRead(MyOleDbCommand);
 
             foreach (DataRow row in dt.Rows)
             {
@@ -56,23 +76,24 @@ namespace Mini_Projet
 
         public DataTable GetAllEnseignantsDataTable()
         {
-            MySqlCommand = new SqlCommand("select * from [Enseignants]");
 
-            dt = DBConnection.FunctionToRead(MySqlCommand);
+            MyOleDbCommand = new OleDbCommand("select E.Id, E.Nom, E.Prenom, E.Email, E.Statut, E.CodeDep, D.Nom as NomDep from [Enseignants] as E, Departements as D where D.Code = E.CodeDep");
+
+            dt = DBConnection.FunctionToRead(MyOleDbCommand);
 
             return dt;
+
         }
 
-        
         public Enseignants GetEnseignantByEmail(string Email)
         {
             Enseignants EnseignantsSearched = new Enseignants();
 
-            MySqlCommand = new SqlCommand("select * from [Enseignants] where Email = @Email");
+            MyOleDbCommand = new OleDbCommand("select E.id, E.Nom, E.Prenom, E.Email, E.Statut, E.CodeDep, D.Nom as NomDep from [Enseignants] as E, Departements as D where Email = @Email and D.Code = E.CodeDep");
 
-            MySqlCommand.Parameters.Add("@Email", SqlDbType.VarChar).Value =Email;
+            MyOleDbCommand.Parameters.Add("@Email", OleDbType.VarChar).Value = Email;
 
-            dt = DBConnection.FunctionToRead(MySqlCommand);
+            dt = DBConnection.FunctionToRead(MyOleDbCommand);
 
             foreach (DataRow row in dt.Rows)
             {
@@ -85,27 +106,28 @@ namespace Mini_Projet
                 return EnseignantsSearched;
         }
 
-        public void AddEnseignant(Enseignants newEnseignant )
+        public void AddEnseignant(Enseignants newEnseignant)
         {
 
-            MySqlCommand = new SqlCommand("insert into [Enseignants]( Nom,Prenom,Email,Statut  )" +
-                                         "values ( @Nom,@Prenom,@Email,@Statut )");
+            MyOleDbCommand = new OleDbCommand("insert into [Enseignants]( Nom,Prenom,Email,Statut, CodeDep )" +
+                                         "values ( @Nom,@Prenom,@Email,@Statut, @CodeDep )");
 
-            MySqlCommand.Parameters.Add("@Nom", SqlDbType.VarChar).Value = newEnseignant.PropNom;
-            MySqlCommand.Parameters.Add("@Prenom", SqlDbType.VarChar).Value = newEnseignant.PropPrenom;
-            MySqlCommand.Parameters.Add("@Email", SqlDbType.VarChar).Value = newEnseignant.PropEmail;
-            MySqlCommand.Parameters.Add("@Statut", SqlDbType.VarChar).Value = newEnseignant.PropStatut;
+            MyOleDbCommand.Parameters.Add("@Nom", OleDbType.VarChar).Value = newEnseignant.PropNom;
+            MyOleDbCommand.Parameters.Add("@Prenom", OleDbType.VarChar).Value = newEnseignant.PropPrenom;
+            MyOleDbCommand.Parameters.Add("@Email", OleDbType.VarChar).Value = newEnseignant.PropEmail;
+            MyOleDbCommand.Parameters.Add("@Statut", OleDbType.VarChar).Value = newEnseignant.PropStatut;
+            MyOleDbCommand.Parameters.Add("@CodeDep", OleDbType.VarChar).Value = newEnseignant.PropDepartements.PropCode;
 
 
-            DBConnection.FunctionToWrite(MySqlCommand);
+            DBConnection.FunctionToWrite(MyOleDbCommand);
 
         }
-         
+
         public void DeleteEnseignant(Enseignants Individu)
-        { 
-            MySqlCommand = new SqlCommand("delete from [Enseignants] where Email= @Email ");
-            MySqlCommand.Parameters.Add("@Email", SqlDbType.VarChar).Value = Individu.PropEmail;
-            DBConnection.FunctionToWrite(MySqlCommand);
+        {
+            MyOleDbCommand = new OleDbCommand("delete from [Enseignants] where Email= @Email ");
+            MyOleDbCommand.Parameters.Add("@Email", OleDbType.VarChar).Value = Individu.PropEmail;
+            DBConnection.FunctionToWrite(MyOleDbCommand);
 
 
         }
@@ -115,7 +137,7 @@ namespace Mini_Projet
             dt = GetAllEnseignantsDataTable();
             foreach (DataRow dr in dt.Rows)
             {
-                if (dr["Email"].ToString() ==Email)
+                if (dr["Email"].ToString() == Email)
                 {
                     return false;
                 }
@@ -123,5 +145,6 @@ namespace Mini_Projet
 
             return true;
         }
+
     }
 }

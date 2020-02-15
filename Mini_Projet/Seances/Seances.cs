@@ -35,5 +35,21 @@ namespace Mini_Projet
             get { return HeureFin; }
             set { HeureFin = value; }
         }
+
+        public Seances() { }
+        public Seances(string Name, string Cod, string HeureDeb, string HeureF)
+        {
+            Nom = Name;
+            Code = Cod;
+            HeureDebut = HeureDeb;
+            HeureFin = HeureF;
+        }
+        public Seances(Seances NewSeance)
+        {
+            Code = NewSeance.PropCode;
+            Nom = NewSeance.PropNom;
+            HeureDebut = NewSeance.PropHeureDebut;
+            HeureFin = NewSeance.PropHeureFin;
+        }
     }
 }

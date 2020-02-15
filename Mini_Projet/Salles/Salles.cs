@@ -10,7 +10,7 @@ namespace Mini_Projet
     {
         private string Nom;
         private string Type;
-        
+
 
         public string PropNom
         {
@@ -23,6 +23,18 @@ namespace Mini_Projet
             set { Type = value; }
         }
 
-       
+        public Salles() { }
+        public Salles(string Name, string Typ)
+        {
+            Nom = Name;
+            Type = Typ;
+        }
+
+        public Salles(Salles NewSalle)
+        {
+            Nom = NewSalle.PropNom;
+            Type = NewSalle.PropType;
+        }
+
     }
 }
