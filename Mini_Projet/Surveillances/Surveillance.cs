@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mini_Projet.Surveillances;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -382,6 +383,12 @@ namespace Mini_Projet
         private void DtgListeEns_SelectionChanged(object sender, EventArgs e)
         {
             ParameterDetail();
+        }
+
+        private void impressionToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Programmes Pro = new Programmes();
+            Pro.Show();
         }
     }
 }

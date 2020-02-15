@@ -37,6 +37,9 @@
             this.TsmOptionRecherche = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmRechercheNom = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmRechercheDepartement = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmRechercheEtat = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmRechercheEnCour = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmRechercheTermine = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
@@ -60,9 +63,6 @@
             this.LbListeEns = new System.Windows.Forms.Label();
             this.TxtSearch = new System.Windows.Forms.TextBox();
             this.DtgListeEnseignants = new System.Windows.Forms.DataGridView();
-            this.TsmRechercheEtat = new System.Windows.Forms.ToolStripMenuItem();
-            this.TsmRechercheEnCour = new System.Windows.Forms.ToolStripMenuItem();
-            this.TsmRechercheTermine = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.metroPanel1.SuspendLayout();
@@ -89,6 +89,7 @@
             this.impressionToolStripMenuItem.Name = "impressionToolStripMenuItem";
             this.impressionToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
             this.impressionToolStripMenuItem.Text = "Impression";
+            this.impressionToolStripMenuItem.Click += new System.EventHandler(this.impressionToolStripMenuItem_Click_1);
             // 
             // envoiDuProgrammeToolStripMenuItem
             // 
@@ -102,7 +103,7 @@
             // aTousLesEnseigantsToolStripMenuItem
             // 
             this.aTousLesEnseigantsToolStripMenuItem.Name = "aTousLesEnseigantsToolStripMenuItem";
-            this.aTousLesEnseigantsToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.aTousLesEnseigantsToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.aTousLesEnseigantsToolStripMenuItem.Text = "A tous les enseigants";
             // 
             // auxEnseignantsSelectionnésToolStripMenuItem
@@ -110,7 +111,7 @@
             this.auxEnseignantsSelectionnésToolStripMenuItem.Checked = true;
             this.auxEnseignantsSelectionnésToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.auxEnseignantsSelectionnésToolStripMenuItem.Name = "auxEnseignantsSelectionnésToolStripMenuItem";
-            this.auxEnseignantsSelectionnésToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.auxEnseignantsSelectionnésToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.auxEnseignantsSelectionnésToolStripMenuItem.Text = "Aux enseignants selectionnés";
             // 
             // TsmOptionRecherche
@@ -138,6 +139,30 @@
             this.TsmRechercheDepartement.Size = new System.Drawing.Size(220, 22);
             this.TsmRechercheDepartement.Text = "Recherche par departement";
             this.TsmRechercheDepartement.Click += new System.EventHandler(this.TmsOptionRecherche_ItemClicked);
+            // 
+            // TsmRechercheEtat
+            // 
+            this.TsmRechercheEtat.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsmRechercheEnCour,
+            this.TsmRechercheTermine});
+            this.TsmRechercheEtat.Name = "TsmRechercheEtat";
+            this.TsmRechercheEtat.Size = new System.Drawing.Size(220, 22);
+            this.TsmRechercheEtat.Text = "Recherche par etat";
+            this.TsmRechercheEtat.Click += new System.EventHandler(this.TmsOptionRecherche_ItemClicked);
+            // 
+            // TsmRechercheEnCour
+            // 
+            this.TsmRechercheEnCour.Name = "TsmRechercheEnCour";
+            this.TsmRechercheEnCour.Size = new System.Drawing.Size(116, 22);
+            this.TsmRechercheEnCour.Text = "En Cour";
+            this.TsmRechercheEnCour.Click += new System.EventHandler(this.TmsOptionRecherche_ItemClicked);
+            // 
+            // TsmRechercheTermine
+            // 
+            this.TsmRechercheTermine.Name = "TsmRechercheTermine";
+            this.TsmRechercheTermine.Size = new System.Drawing.Size(116, 22);
+            this.TsmRechercheTermine.Text = "Termine";
+            this.TsmRechercheTermine.Click += new System.EventHandler(this.TmsOptionRecherche_ItemClicked);
             // 
             // statusStrip
             // 
@@ -374,30 +399,6 @@
             this.DtgListeEnseignants.Size = new System.Drawing.Size(396, 378);
             this.DtgListeEnseignants.TabIndex = 0;
             this.DtgListeEnseignants.SelectionChanged += new System.EventHandler(this.DtgListeEns_SelectionChanged);
-            // 
-            // TsmRechercheEtat
-            // 
-            this.TsmRechercheEtat.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TsmRechercheEnCour,
-            this.TsmRechercheTermine});
-            this.TsmRechercheEtat.Name = "TsmRechercheEtat";
-            this.TsmRechercheEtat.Size = new System.Drawing.Size(220, 22);
-            this.TsmRechercheEtat.Text = "Recherche par etat";
-            this.TsmRechercheEtat.Click += new System.EventHandler(this.TmsOptionRecherche_ItemClicked);
-            // 
-            // TsmRechercheEnCour
-            // 
-            this.TsmRechercheEnCour.Name = "TsmRechercheEnCour";
-            this.TsmRechercheEnCour.Size = new System.Drawing.Size(180, 22);
-            this.TsmRechercheEnCour.Text = "En Cour";
-            this.TsmRechercheEnCour.Click += new System.EventHandler(this.TmsOptionRecherche_ItemClicked);
-            // 
-            // TsmRechercheTermine
-            // 
-            this.TsmRechercheTermine.Name = "TsmRechercheTermine";
-            this.TsmRechercheTermine.Size = new System.Drawing.Size(180, 22);
-            this.TsmRechercheTermine.Text = "Termine";
-            this.TsmRechercheTermine.Click += new System.EventHandler(this.TmsOptionRecherche_ItemClicked);
             // 
             // Surveillance
             // 
