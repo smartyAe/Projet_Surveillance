@@ -271,8 +271,7 @@
       <DependentUpon>MiniProjetDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\Mini_Projet.Properties.Resources.datasource" />
-    <None Include="Properties\DataSources\Mini_Projet.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\MiniProjetDataSet.SurveillancesDataTable.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

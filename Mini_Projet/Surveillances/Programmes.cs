@@ -50,8 +50,8 @@ namespace Mini_Projet.Surveillances
             reportViewer1.LocalReport.DataSources.Clear(); //clear report
             ReportParameter[] rparams = new ReportParameter[]
                 {
-                    new ReportParameter("ReportRef",MainFacture.dt.Rows[0]["Reference1"].ToString()),
-                    new ReportParameter("ReportDate",MainFacture.dt.Rows[0]["Date"].ToString())
+                   // new ReportParameter("ReportRef",MainFacture.dt.Rows[0]["Reference1"].ToString()),
+                    //new ReportParameter("ReportDate",MainFacture.dt.Rows[0]["Date"].ToString())
         };
 
             ReportDataSource dataset = new ReportDataSource("LgFacture", list); // set the datasource
