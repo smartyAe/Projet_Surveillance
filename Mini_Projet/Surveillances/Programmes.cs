@@ -13,24 +13,38 @@ namespace Mini_Projet.Surveillances
 {
     public partial class Programmes : MetroFramework.Forms.MetroForm
     {
+        DataTable CurrentDataTableEnseignant = new DataTable();
+        DataTable CurrentDataTableProgrammes = new DataTable();
+        Enseignants CurrentEns = null;
+
         public Programmes()
         {
             InitializeComponent();
         }
 
-        private void Programmes_Load(object sender, EventArgs e)
+        public void FillDtgListeEnseignants()
+        {
+            CurrentDataTableEnseignant = new Dal_Enseignant().GetAllEnseignantsDataTable(); 
+            CurrentDataTableEnseignant = Helper.AdaptDataTableEnseignant(CurrentDataTableEnseignant);
+
+             
+
+        }
+        
+        public void FillDtgListeProgrames(int IdEns)
         {
 
-            this.reportViewer1.Visible = true;
-
-            List<string> list = new List<string>();
-
-            Surveillances Surv = new Surveillances();
-            foreach (DataRow row in MainFacture.dt.Rows)
+            CurrentDataTableProgrammes = new Dal_Surveillance().GetSurveillancesByEnseignant(IdEns); 
+            CurrentDataTableProgrammes = Helper.AdaptDataTableProgrammes(CurrentDataTableProgrammes);
+            List<SurveillanceRecordForProgrammes> list = new List<SurveillanceRecordForProgrammes>();
+            SurveillanceRecordForProgrammes Surv = new SurveillanceRecordForProgrammes();
+            foreach (DataRow row in CurrentDataTableProgrammes.Rows)
             {
-                Surv.RefProp = row["Reference"].ToString();
-                Surv.PrixUProp = float.Parse(row["Pu"].ToString());
-                Surv.QuantProp = Int32.Parse(row["Quantite"].ToString());
+                Surv.Seance = row["CodeSeances"].ToString();
+                Surv.Salle =  row["NomSalle"].ToString();
+                Surv.Date = row["DateSurveillance"].ToString(); 
+                Surv.HeureD = row["HeureDebut"].ToString();
+                Surv.HeureF = row["HeureFin"].ToString();
                 list.Add(Surv);
             }
             reportViewer1.LocalReport.DataSources.Clear(); //clear report
@@ -47,8 +61,18 @@ namespace Mini_Projet.Surveillances
             reportViewer1.LocalReport.Refresh();
             reportViewer1.RefreshReport(); // refresh report
 
-        }
+        } 
+
+        private void Programmes_Load(object sender, EventArgs e)
+        {
+
+            this.reportViewer1.Visible = true;
+
+
+
+            
+        }  
 
     }
 }
-}
+ 
