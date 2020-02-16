@@ -20,6 +20,7 @@ namespace Mini_Projet.Surveillances
         public Programmes()
         {
             InitializeComponent();
+            FillReportEnseignants();
         }
 
         public void FillReportEnseignants()
@@ -29,7 +30,10 @@ namespace Mini_Projet.Surveillances
 
             foreach (DataRow row in CurrentDataTableEnseignant.Rows)
             {
-                FillReportProgrames(Int32.Parse(row["Id"].ToString()), row["Nom"].ToString(), row["NomDep"].ToString());
+                 
+                FillReportProgrames(1, row[1].ToString(), row[2].ToString());
+
+                 
             }
 
         }
@@ -59,7 +63,7 @@ namespace Mini_Projet.Surveillances
                      new ReportParameter("DateNow",DateTime.Now.ToString())
             };
 
-            ReportDataSource dataset = new ReportDataSource("Programs", list); // set the datasource
+            ReportDataSource dataset = new ReportDataSource("Programmes", list); // set the datasource
             reportViewer1.LocalReport.DataSources.Add(dataset);
             dataset.Value = list;
             reportViewer1.LocalReport.SetParameters(rparams);
@@ -74,11 +78,7 @@ namespace Mini_Projet.Surveillances
             this.surveillancesTableAdapter.Fill(this.miniProjetDataSet1.Surveillances);
 
             this.reportViewer1.Visible = true;
-
-
-
-
-            this.reportViewer1.RefreshReport();
+              
             this.reportViewer1.RefreshReport();
         }
 
