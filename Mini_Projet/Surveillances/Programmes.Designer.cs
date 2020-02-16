@@ -28,16 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.miniProjetDataSet1 = new Mini_Projet.MiniProjetDataSet1();
+            this.surveillancesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.surveillancesTableAdapter = new Mini_Projet.MiniProjetDataSet1TableAdapters.SurveillancesTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.miniProjetDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.surveillancesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
             // 
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Mini_Projet.Surveillances.Programmes.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(23, 69);
+            this.reportViewer1.Location = new System.Drawing.Point(31, 76);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(848, 621);
+            this.reportViewer1.Size = new System.Drawing.Size(837, 639);
             this.reportViewer1.TabIndex = 0;
+            // 
+            // miniProjetDataSet1
+            // 
+            this.miniProjetDataSet1.DataSetName = "MiniProjetDataSet1";
+            this.miniProjetDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // surveillancesBindingSource
+            // 
+            this.surveillancesBindingSource.DataMember = "Surveillances";
+            this.surveillancesBindingSource.DataSource = this.miniProjetDataSet1;
+            // 
+            // surveillancesTableAdapter
+            // 
+            this.surveillancesTableAdapter.ClearBeforeFill = true;
             // 
             // Programmes
             // 
@@ -48,6 +68,8 @@
             this.Name = "Programmes";
             this.Text = "Programmes";
             this.Load += new System.EventHandler(this.Programmes_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.miniProjetDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.surveillancesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -55,5 +77,8 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private MiniProjetDataSet1 miniProjetDataSet1;
+        private System.Windows.Forms.BindingSource surveillancesBindingSource;
+        private MiniProjetDataSet1TableAdapters.SurveillancesTableAdapter surveillancesTableAdapter;
     }
 }

@@ -77,6 +77,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MiniProjetDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="MiniProjetDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MiniProjetDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Salles\Ajouter_Salle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,7 +197,7 @@
     <Compile Include="Surveillances\Surveillance.Designer.cs">
       <DependentUpon>Surveillance.cs</DependentUpon>
     </Compile>
-    <Compile Include="SurveillanceRecordForProgrammes.cs" />
+    <Compile Include="Surveillances\SurveillanceRecordForProgrammes.cs" />
     <Compile Include="Surveillances\Surveillances.cs" />
     <EmbeddedResource Include="Enseignants\Ajouter_Enseignant.resx">
       <DependentUpon>Ajouter_Enseignant.cs</DependentUpon>
@@ -270,8 +275,18 @@
     <None Include="MiniProjetDataSet.xss">
       <DependentUpon>MiniProjetDataSet.xsd</DependentUpon>
     </None>
+    <None Include="MiniProjetDataSet1.xsc">
+      <DependentUpon>MiniProjetDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="MiniProjetDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MiniProjetDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MiniProjetDataSet1.xss">
+      <DependentUpon>MiniProjetDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\MiniProjetDataSet.SurveillancesDataTable.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

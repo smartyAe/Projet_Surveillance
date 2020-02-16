@@ -22,17 +22,21 @@ namespace Mini_Projet.Surveillances
             InitializeComponent();
         }
 
-        public void FillDtgListeEnseignants()
+        public void FillReportEnseignants()
         {
             CurrentDataTableEnseignant = new Dal_Enseignant().GetAllEnseignantsDataTable(); 
             CurrentDataTableEnseignant = Helper.AdaptDataTableEnseignant(CurrentDataTableEnseignant);
 
-             
+            foreach (DataRow row in CurrentDataTableEnseignant.Rows)
+            {
+                FillReportProgrames(Int32.Parse(row["Id"].ToString()), row["Nom"].ToString(), row["NomDep"].ToString());
+            }
 
         }
         
-        public void FillDtgListeProgrames(int IdEns)
+        public void FillReportProgrames(int IdEns, string Name, string Dept)
         {
+            //reportViewer1.LocalReport.DataSources.Clear(); //clear report
 
             CurrentDataTableProgrammes = new Dal_Surveillance().GetSurveillancesByEnseignant(IdEns); 
             CurrentDataTableProgrammes = Helper.AdaptDataTableProgrammes(CurrentDataTableProgrammes);
@@ -47,14 +51,15 @@ namespace Mini_Projet.Surveillances
                 Surv.HeureF = row["HeureFin"].ToString();
                 list.Add(Surv);
             }
-            reportViewer1.LocalReport.DataSources.Clear(); //clear report
+            
             ReportParameter[] rparams = new ReportParameter[]
                 {
-                   // new ReportParameter("ReportRef",MainFacture.dt.Rows[0]["Reference1"].ToString()),
-                    //new ReportParameter("ReportDate",MainFacture.dt.Rows[0]["Date"].ToString())
-        };
+                   new ReportParameter("NomEnseignant", Name ),
+                    new ReportParameter("Departement",Dept  ),
+                     new ReportParameter("DateNow",DateTime.Now.ToString())
+            };
 
-            ReportDataSource dataset = new ReportDataSource("LgFacture", list); // set the datasource
+            ReportDataSource dataset = new ReportDataSource("Programs", list); // set the datasource
             reportViewer1.LocalReport.DataSources.Add(dataset);
             dataset.Value = list;
             reportViewer1.LocalReport.SetParameters(rparams);
@@ -65,13 +70,16 @@ namespace Mini_Projet.Surveillances
 
         private void Programmes_Load(object sender, EventArgs e)
         {
+            // TODO: cette ligne de code charge les données dans la table 'miniProjetDataSet1.Surveillances'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.surveillancesTableAdapter.Fill(this.miniProjetDataSet1.Surveillances);
 
             this.reportViewer1.Visible = true;
 
 
 
-            
-        }  
+
+            this.reportViewer1.RefreshReport();
+        }
 
     }
 }
