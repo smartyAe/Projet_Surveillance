@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mini_Projet
+namespace Mini_Projet 
 {
-    class Helper
-    {
+    class ReportData
+    { 
 
         public static List<Enseignants> AllEnseignants = null;
         public static List<Surveillances.Surveillances> AllSurveillance = null;
@@ -16,39 +16,39 @@ namespace Mini_Projet
         public static DataTable InitialiseDataGridEnseignant(DataTable CurrentDataTableEnseignant)
         {
 
-            DataColumn ColumnLigneFacture = new DataColumn();
+            DataColumn ColumnLigneReportData = new DataColumn();
 
-            ColumnLigneFacture = new DataColumn();
-            ColumnLigneFacture.DataType = System.Type.GetType("System.Boolean");
-            ColumnLigneFacture.ColumnName = "Selectionner";
-            ColumnLigneFacture.ReadOnly = false;
-            ColumnLigneFacture.Unique = false;
+            ColumnLigneReportData = new DataColumn();
+            ColumnLigneReportData.DataType = System.Type.GetType("System.String");
+            ColumnLigneReportData.ColumnName = "Id";
+            ColumnLigneReportData.ReadOnly = true;
+            ColumnLigneReportData.Unique = false;
             // Add the Column to the DataColumnCollection.
-            CurrentDataTableEnseignant.Columns.Add(ColumnLigneFacture);
+            CurrentDataTableEnseignant.Columns.Add(ColumnLigneReportData);
 
-            ColumnLigneFacture = new DataColumn();
-            ColumnLigneFacture.DataType = System.Type.GetType("System.String");
-            ColumnLigneFacture.ColumnName = "Nom";
-            ColumnLigneFacture.ReadOnly = true;
-            ColumnLigneFacture.Unique = false;
+            ColumnLigneReportData = new DataColumn();
+            ColumnLigneReportData.DataType = System.Type.GetType("System.String");
+            ColumnLigneReportData.ColumnName = "Nom";
+            ColumnLigneReportData.ReadOnly = true;
+            ColumnLigneReportData.Unique = false;
             // Add the Column to the DataColumnCollection.
-            CurrentDataTableEnseignant.Columns.Add(ColumnLigneFacture);
+            CurrentDataTableEnseignant.Columns.Add(ColumnLigneReportData);
 
-            ColumnLigneFacture = new DataColumn();
-            ColumnLigneFacture.DataType = System.Type.GetType("System.String");
-            ColumnLigneFacture.ColumnName = "Departement";
-            ColumnLigneFacture.ReadOnly = true;
-            ColumnLigneFacture.Unique = false;
+            ColumnLigneReportData = new DataColumn();
+            ColumnLigneReportData.DataType = System.Type.GetType("System.String");
+            ColumnLigneReportData.ColumnName = "Departement";
+            ColumnLigneReportData.ReadOnly = true;
+            ColumnLigneReportData.Unique = false;
             // Add the Column to the DataColumnCollection.
-            CurrentDataTableEnseignant.Columns.Add(ColumnLigneFacture);
+            CurrentDataTableEnseignant.Columns.Add(ColumnLigneReportData);
 
-            ColumnLigneFacture = new DataColumn();
-            ColumnLigneFacture.DataType = System.Type.GetType("System.String");
-            ColumnLigneFacture.ColumnName = "Etat";
-            ColumnLigneFacture.ReadOnly = true;
-            ColumnLigneFacture.Unique = false;
+            ColumnLigneReportData = new DataColumn();
+            ColumnLigneReportData.DataType = System.Type.GetType("System.String");
+            ColumnLigneReportData.ColumnName = "Etat";
+            ColumnLigneReportData.ReadOnly = true;
+            ColumnLigneReportData.Unique = false;
             // Add the Column to the DataColumnCollection.
-            CurrentDataTableEnseignant.Columns.Add(ColumnLigneFacture);
+            CurrentDataTableEnseignant.Columns.Add(ColumnLigneReportData);
 
             return CurrentDataTableEnseignant;
 
@@ -58,49 +58,49 @@ namespace Mini_Projet
         public static DataTable InitialiseDataGridProgrammes(DataTable CurrentDataTableEnseignant)
         {
 
-            DataColumn ColumnLigneFacture = new DataColumn();
+            DataColumn ColumnLigneReportData = new DataColumn();
 
 
-            ColumnLigneFacture = new DataColumn();
-            ColumnLigneFacture.DataType = System.Type.GetType("System.String");
-            ColumnLigneFacture.ColumnName = "Nom Salle";
-            ColumnLigneFacture.ReadOnly = true;
-            ColumnLigneFacture.Unique = false;
+            ColumnLigneReportData = new DataColumn();
+            ColumnLigneReportData.DataType = System.Type.GetType("System.String");
+            ColumnLigneReportData.ColumnName = "Nom Salle";
+            ColumnLigneReportData.ReadOnly = true;
+            ColumnLigneReportData.Unique = false;
             // Add the Column to the DataColumnCollection.
-            CurrentDataTableEnseignant.Columns.Add(ColumnLigneFacture);
+            CurrentDataTableEnseignant.Columns.Add(ColumnLigneReportData);
 
-            ColumnLigneFacture = new DataColumn();
-            ColumnLigneFacture.DataType = System.Type.GetType("System.String");
-            ColumnLigneFacture.ColumnName = "Nom Seance";
-            ColumnLigneFacture.ReadOnly = true;
-            ColumnLigneFacture.Unique = false;
+            ColumnLigneReportData = new DataColumn();
+            ColumnLigneReportData.DataType = System.Type.GetType("System.String");
+            ColumnLigneReportData.ColumnName = "Nom Seance";
+            ColumnLigneReportData.ReadOnly = true;
+            ColumnLigneReportData.Unique = false;
             // Add the Column to the DataColumnCollection.
-            CurrentDataTableEnseignant.Columns.Add(ColumnLigneFacture);
+            CurrentDataTableEnseignant.Columns.Add(ColumnLigneReportData);
 
-            ColumnLigneFacture = new DataColumn();
-            ColumnLigneFacture.DataType = System.Type.GetType("System.String");
-            ColumnLigneFacture.ColumnName = "Heure Debut";
-            ColumnLigneFacture.ReadOnly = true;
-            ColumnLigneFacture.Unique = false;
+            ColumnLigneReportData = new DataColumn();
+            ColumnLigneReportData.DataType = System.Type.GetType("System.String");
+            ColumnLigneReportData.ColumnName = "Heure Debut";
+            ColumnLigneReportData.ReadOnly = true;
+            ColumnLigneReportData.Unique = false;
             // Add the Column to the DataColumnCollection.
-            CurrentDataTableEnseignant.Columns.Add(ColumnLigneFacture);
+            CurrentDataTableEnseignant.Columns.Add(ColumnLigneReportData);
 
-            ColumnLigneFacture = new DataColumn();
-            ColumnLigneFacture.DataType = System.Type.GetType("System.String");
-            ColumnLigneFacture.ColumnName = "Heure Fin";
-            ColumnLigneFacture.ReadOnly = true;
-            ColumnLigneFacture.Unique = false;
+            ColumnLigneReportData = new DataColumn();
+            ColumnLigneReportData.DataType = System.Type.GetType("System.String");
+            ColumnLigneReportData.ColumnName = "Heure Fin";
+            ColumnLigneReportData.ReadOnly = true;
+            ColumnLigneReportData.Unique = false;
             // Add the Column to the DataColumnCollection.
-            CurrentDataTableEnseignant.Columns.Add(ColumnLigneFacture);
+            CurrentDataTableEnseignant.Columns.Add(ColumnLigneReportData);
 
-            ColumnLigneFacture = new DataColumn();
-            ColumnLigneFacture.DataType = System.Type.GetType("System.DateTime");
-            ColumnLigneFacture.ColumnName = "Date Surveillance";
-            ColumnLigneFacture.ReadOnly = true;
-            ColumnLigneFacture.Unique = false;
+            ColumnLigneReportData = new DataColumn();
+            ColumnLigneReportData.DataType = System.Type.GetType("System.DateTime");
+            ColumnLigneReportData.ColumnName = "Date Surveillance";
+            ColumnLigneReportData.ReadOnly = true;
+            ColumnLigneReportData.Unique = false;
             // Add the Column to the DataColumnCollection.
 
-            CurrentDataTableEnseignant.Columns.Add(ColumnLigneFacture);
+            CurrentDataTableEnseignant.Columns.Add(ColumnLigneReportData);
 
             return CurrentDataTableEnseignant;
 
@@ -161,7 +161,7 @@ namespace Mini_Projet
                     CodeDep = "pas de Departement";
                     CurrentEnseignant = new Enseignants(Nom, PreNom, Email, Status, new Departements("", CodeDep));
                     Datatable.Rows.Add(
-
+                         Id,
                          false,
                          Nom + ' ' + PreNom.Split(' ')[0],
                         "pas de Departement",

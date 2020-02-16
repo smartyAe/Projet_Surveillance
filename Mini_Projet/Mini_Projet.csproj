@@ -191,6 +191,7 @@
     <Compile Include="Surveillances\Programmes.Designer.cs">
       <DependentUpon>Programmes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Surveillances\ReportData.cs" />
     <Compile Include="Surveillances\Surveillance.cs">
       <SubType>Form</SubType>
     </Compile>

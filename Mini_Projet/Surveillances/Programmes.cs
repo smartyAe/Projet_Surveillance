@@ -26,24 +26,24 @@ namespace Mini_Projet.Surveillances
         public void FillReportEnseignants()
         {
             CurrentDataTableEnseignant = new Dal_Enseignant().GetAllEnseignantsDataTable(); 
-            CurrentDataTableEnseignant = Helper.AdaptDataTableEnseignant(CurrentDataTableEnseignant);
+            CurrentDataTableEnseignant = ReportData.AdaptDataTableEnseignant(CurrentDataTableEnseignant);
 
             foreach (DataRow row in CurrentDataTableEnseignant.Rows)
             {
-                 
-                FillReportProgrames(1, row[1].ToString(), row[2].ToString());
+               MessageBox.Show(row[0].ToString() + " " + row[2].ToString() + " " + row[1].ToString());
+                //FillReportProgrames(2, row[1].ToString(), row[5].ToString());
 
                  
             }
 
         }
         
-        public void FillReportProgrames(int IdEns, string Name, string Dept)
+        public void FillReportProgrames(int  IdEns, string Name, string Dept)
         {
             //reportViewer1.LocalReport.DataSources.Clear(); //clear report
 
-            CurrentDataTableProgrammes = new Dal_Surveillance().GetSurveillancesByEnseignant(IdEns); 
-            CurrentDataTableProgrammes = Helper.AdaptDataTableProgrammes(CurrentDataTableProgrammes);
+             CurrentDataTableProgrammes = new Dal_Surveillance().GetSurveillancesByEnseignant(IdEns); 
+            CurrentDataTableProgrammes = ReportData.AdaptDataTableProgrammes(CurrentDataTableProgrammes);
             List<SurveillanceRecordForProgrammes> list = new List<SurveillanceRecordForProgrammes>();
             SurveillanceRecordForProgrammes Surv = new SurveillanceRecordForProgrammes();
             foreach (DataRow row in CurrentDataTableProgrammes.Rows)
@@ -63,7 +63,7 @@ namespace Mini_Projet.Surveillances
                      new ReportParameter("DateNow",DateTime.Now.ToString())
             };
 
-            ReportDataSource dataset = new ReportDataSource("Programmes", list); // set the datasource
+            ReportDataSource dataset = new ReportDataSource("Programs", list); // set the datasource
             reportViewer1.LocalReport.DataSources.Add(dataset);
             dataset.Value = list;
             reportViewer1.LocalReport.SetParameters(rparams);
