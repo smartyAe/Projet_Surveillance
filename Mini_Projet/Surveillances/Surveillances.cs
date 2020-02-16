@@ -23,7 +23,7 @@ namespace Mini_Projet.Surveillances
 
         public DateTime PropDateSurveillance
         {
-            get { return DateSurveillance; }
+            get { return DateSurveillance.Date; }
             set { DateSurveillance = value; }
         }
 

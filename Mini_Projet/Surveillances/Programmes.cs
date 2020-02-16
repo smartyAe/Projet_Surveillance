@@ -79,6 +79,7 @@ namespace Mini_Projet.Surveillances
 
 
             this.reportViewer1.RefreshReport();
+            this.reportViewer1.RefreshReport();
         }
 
     }

@@ -29,21 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.miniProjetDataSet1 = new Mini_Projet.MiniProjetDataSet1();
             this.surveillancesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.surveillancesTableAdapter = new Mini_Projet.MiniProjetDataSet1TableAdapters.SurveillancesTableAdapter();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.miniProjetDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.surveillancesBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // reportViewer1
-            // 
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Mini_Projet.Surveillances.Programmes.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(31, 76);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(837, 639);
-            this.reportViewer1.TabIndex = 0;
             // 
             // miniProjetDataSet1
             // 
@@ -58,6 +51,17 @@
             // surveillancesTableAdapter
             // 
             this.surveillancesTableAdapter.ClearBeforeFill = true;
+            // 
+            // reportViewer1
+            // 
+            reportDataSource1.Name = "Programs";
+            reportDataSource1.Value = this.surveillancesBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Mini_Projet.Surveillances.Programmes.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(23, 72);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.Size = new System.Drawing.Size(834, 625);
+            this.reportViewer1.TabIndex = 0;
             // 
             // Programmes
             // 
@@ -75,10 +79,9 @@
         }
 
         #endregion
-
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private MiniProjetDataSet1 miniProjetDataSet1;
         private System.Windows.Forms.BindingSource surveillancesBindingSource;
         private MiniProjetDataSet1TableAdapters.SurveillancesTableAdapter surveillancesTableAdapter;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }
