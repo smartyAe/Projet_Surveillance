@@ -150,7 +150,8 @@ namespace Mini_Projet
 
                     CurrentEnseignant = new Enseignants(Nom, PreNom, Email, Status, CurrentDepartements);
                     Datatable.Rows.Add(
-                        false,
+                         
+                        Id,
                         Nom + ' ' + PreNom.Split(' ')[0],
                         CurrentDepartements.PropNom,
                         Status
@@ -161,8 +162,8 @@ namespace Mini_Projet
                     CodeDep = "pas de Departement";
                     CurrentEnseignant = new Enseignants(Nom, PreNom, Email, Status, new Departements("", CodeDep));
                     Datatable.Rows.Add(
+                         
                          Id,
-                         false,
                          Nom + ' ' + PreNom.Split(' ')[0],
                         "pas de Departement",
                          Status
