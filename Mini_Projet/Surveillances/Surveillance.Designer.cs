@@ -105,11 +105,10 @@
             this.aTousLesEnseigantsToolStripMenuItem.Name = "aTousLesEnseigantsToolStripMenuItem";
             this.aTousLesEnseigantsToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.aTousLesEnseigantsToolStripMenuItem.Text = "A tous les enseigants";
+            this.aTousLesEnseigantsToolStripMenuItem.Click += new System.EventHandler(this.aTousLesEnseigantsToolStripMenuItem_Click);
             // 
             // auxEnseignantsSelectionnésToolStripMenuItem
             // 
-            this.auxEnseignantsSelectionnésToolStripMenuItem.Checked = true;
-            this.auxEnseignantsSelectionnésToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.auxEnseignantsSelectionnésToolStripMenuItem.Name = "auxEnseignantsSelectionnésToolStripMenuItem";
             this.auxEnseignantsSelectionnésToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.auxEnseignantsSelectionnésToolStripMenuItem.Text = "Aux enseignants selectionnés";

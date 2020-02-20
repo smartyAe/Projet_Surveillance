@@ -1609,7 +1609,7 @@ namespace Mini_Projet {
             
             private global::System.Data.DataColumn columnId;
             
-            private global::System.Data.DataColumn columnIdEnseinant;
+            private global::System.Data.DataColumn columnIdEnseignant;
             
             private global::System.Data.DataColumn columnCodeSeances;
             
@@ -1619,7 +1619,7 @@ namespace Mini_Projet {
             
             private global::System.Data.DataColumn columnHeureFin;
             
-            private global::System.Data.DataColumn columnDate;
+            private global::System.Data.DataColumn columnDateSurveillance;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1664,9 +1664,9 @@ namespace Mini_Projet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IdEnseinantColumn {
+            public global::System.Data.DataColumn IdEnseignantColumn {
                 get {
-                    return this.columnIdEnseinant;
+                    return this.columnIdEnseignant;
                 }
             }
             
@@ -1704,9 +1704,9 @@ namespace Mini_Projet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DateColumn {
+            public global::System.Data.DataColumn DateSurveillanceColumn {
                 get {
-                    return this.columnDate;
+                    return this.columnDateSurveillance;
                 }
             }
             
@@ -1747,16 +1747,16 @@ namespace Mini_Projet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SurveillancesRow AddSurveillancesRow(int IdEnseinant, string CodeSeances, string NomSalle, string HeureDebut, string HeureFin, System.DateTime Date) {
+            public SurveillancesRow AddSurveillancesRow(int IdEnseignant, string CodeSeances, string NomSalle, string HeureDebut, string HeureFin, System.DateTime DateSurveillance) {
                 SurveillancesRow rowSurveillancesRow = ((SurveillancesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        IdEnseinant,
+                        IdEnseignant,
                         CodeSeances,
                         NomSalle,
                         HeureDebut,
                         HeureFin,
-                        Date};
+                        DateSurveillance};
                 rowSurveillancesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSurveillancesRow);
                 return rowSurveillancesRow;
@@ -1787,12 +1787,12 @@ namespace Mini_Projet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnId = base.Columns["Id"];
-                this.columnIdEnseinant = base.Columns["IdEnseinant"];
+                this.columnIdEnseignant = base.Columns["IdEnseignant"];
                 this.columnCodeSeances = base.Columns["CodeSeances"];
                 this.columnNomSalle = base.Columns["NomSalle"];
                 this.columnHeureDebut = base.Columns["HeureDebut"];
                 this.columnHeureFin = base.Columns["HeureFin"];
-                this.columnDate = base.Columns["Date"];
+                this.columnDateSurveillance = base.Columns["DateSurveillance"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1800,8 +1800,8 @@ namespace Mini_Projet {
             private void InitClass() {
                 this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId);
-                this.columnIdEnseinant = new global::System.Data.DataColumn("IdEnseinant", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIdEnseinant);
+                this.columnIdEnseignant = new global::System.Data.DataColumn("IdEnseignant", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIdEnseignant);
                 this.columnCodeSeances = new global::System.Data.DataColumn("CodeSeances", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCodeSeances);
                 this.columnNomSalle = new global::System.Data.DataColumn("NomSalle", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1810,8 +1810,8 @@ namespace Mini_Projet {
                 base.Columns.Add(this.columnHeureDebut);
                 this.columnHeureFin = new global::System.Data.DataColumn("HeureFin", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHeureFin);
-                this.columnDate = new global::System.Data.DataColumn("Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDate);
+                this.columnDateSurveillance = new global::System.Data.DataColumn("DateSurveillance", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateSurveillance);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -2360,18 +2360,18 @@ namespace Mini_Projet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int IdEnseinant {
+            public int IdEnseignant {
                 get {
                     try {
-                        return ((int)(this[this.tableSurveillances.IdEnseinantColumn]));
+                        return ((int)(this[this.tableSurveillances.IdEnseignantColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'IdEnseinant\' dans la table \'Surveillances\' est DBNull." +
-                                "", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'IdEnseignant\' dans la table \'Surveillances\' est DBNull" +
+                                ".", e);
                     }
                 }
                 set {
-                    this[this.tableSurveillances.IdEnseinantColumn] = value;
+                    this[this.tableSurveillances.IdEnseignantColumn] = value;
                 }
             }
             
@@ -2442,30 +2442,31 @@ namespace Mini_Projet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Date {
+            public System.DateTime DateSurveillance {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableSurveillances.DateColumn]));
+                        return ((global::System.DateTime)(this[this.tableSurveillances.DateSurveillanceColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Date\' dans la table \'Surveillances\' est DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'DateSurveillance\' dans la table \'Surveillances\' est DB" +
+                                "Null.", e);
                     }
                 }
                 set {
-                    this[this.tableSurveillances.DateColumn] = value;
+                    this[this.tableSurveillances.DateSurveillanceColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsIdEnseinantNull() {
-                return this.IsNull(this.tableSurveillances.IdEnseinantColumn);
+            public bool IsIdEnseignantNull() {
+                return this.IsNull(this.tableSurveillances.IdEnseignantColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetIdEnseinantNull() {
-                this[this.tableSurveillances.IdEnseinantColumn] = global::System.Convert.DBNull;
+            public void SetIdEnseignantNull() {
+                this[this.tableSurveillances.IdEnseignantColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2518,14 +2519,14 @@ namespace Mini_Projet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDateNull() {
-                return this.IsNull(this.tableSurveillances.DateColumn);
+            public bool IsDateSurveillanceNull() {
+                return this.IsNull(this.tableSurveillances.DateSurveillanceColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDateNull() {
-                this[this.tableSurveillances.DateColumn] = global::System.Convert.DBNull;
+            public void SetDateSurveillanceNull() {
+                this[this.tableSurveillances.DateSurveillanceColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4362,20 +4363,20 @@ namespace Mini_Projet.MiniProjetDataSetTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Surveillances";
             tableMapping.ColumnMappings.Add("Id", "Id");
-            tableMapping.ColumnMappings.Add("IdEnseinant", "IdEnseinant");
+            tableMapping.ColumnMappings.Add("IdEnseignant", "IdEnseignant");
             tableMapping.ColumnMappings.Add("CodeSeances", "CodeSeances");
             tableMapping.ColumnMappings.Add("NomSalle", "NomSalle");
             tableMapping.ColumnMappings.Add("HeureDebut", "HeureDebut");
             tableMapping.ColumnMappings.Add("HeureFin", "HeureFin");
-            tableMapping.ColumnMappings.Add("Date", "Date");
+            tableMapping.ColumnMappings.Add("DateSurveillance", "DateSurveillance");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Surveillances` WHERE ((`Id` = ?) AND ((? = 1 AND `IdEnseinant` IS NULL) OR (`IdEnseinant` = ?)) AND ((? = 1 AND `CodeSeances` IS NULL) OR (`CodeSeances` = ?)) AND ((? = 1 AND `NomSalle` IS NULL) OR (`NomSalle` = ?)) AND ((? = 1 AND `HeureDebut` IS NULL) OR (`HeureDebut` = ?)) AND ((? = 1 AND `HeureFin` IS NULL) OR (`HeureFin` = ?)) AND ((? = 1 AND `Date` IS NULL) OR (`Date` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Surveillances` WHERE ((`Id` = ?) AND ((? = 1 AND `IdEnseignant` IS NULL) OR (`IdEnseignant` = ?)) AND ((? = 1 AND `CodeSeances` IS NULL) OR (`CodeSeances` = ?)) AND ((? = 1 AND `NomSalle` IS NULL) OR (`NomSalle` = ?)) AND ((? = 1 AND `HeureDebut` IS NULL) OR (`HeureDebut` = ?)) AND ((? = 1 AND `HeureFin` IS NULL) OR (`HeureFin` = ?)) AND ((? = 1 AND `DateSurveillance` IS NULL) OR (`DateSurveillance` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_IdEnseinant", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IdEnseinant", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_IdEnseinant", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IdEnseinant", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_IdEnseignant", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IdEnseignant", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_IdEnseignant", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IdEnseignant", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CodeSeances", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CodeSeances", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CodeSeances", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CodeSeances", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_NomSalle", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NomSalle", global::System.Data.DataRowVersion.Original, true, null));
@@ -4384,32 +4385,32 @@ namespace Mini_Projet.MiniProjetDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_HeureDebut", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HeureDebut", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_HeureFin", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HeureFin", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_HeureFin", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HeureFin", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Date", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Date", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Date", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Date", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_DateSurveillance", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DateSurveillance", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_DateSurveillance", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DateSurveillance", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Surveillances` (`IdEnseinant`, `CodeSeances`, `NomSalle`, `HeureDebu" +
-                "t`, `HeureFin`, `Date`) VALUES (?, ?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Surveillances` (`IdEnseignant`, `CodeSeances`, `NomSalle`, `HeureDeb" +
+                "ut`, `HeureFin`, `DateSurveillance`) VALUES (?, ?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IdEnseinant", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IdEnseinant", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IdEnseignant", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IdEnseignant", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CodeSeances", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CodeSeances", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("NomSalle", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NomSalle", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("HeureDebut", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HeureDebut", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("HeureFin", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HeureFin", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Date", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Date", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("DateSurveillance", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DateSurveillance", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `Surveillances` SET `IdEnseinant` = ?, `CodeSeances` = ?, `NomSalle` = ?, `HeureDebut` = ?, `HeureFin` = ?, `Date` = ? WHERE ((`Id` = ?) AND ((? = 1 AND `IdEnseinant` IS NULL) OR (`IdEnseinant` = ?)) AND ((? = 1 AND `CodeSeances` IS NULL) OR (`CodeSeances` = ?)) AND ((? = 1 AND `NomSalle` IS NULL) OR (`NomSalle` = ?)) AND ((? = 1 AND `HeureDebut` IS NULL) OR (`HeureDebut` = ?)) AND ((? = 1 AND `HeureFin` IS NULL) OR (`HeureFin` = ?)) AND ((? = 1 AND `Date` IS NULL) OR (`Date` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `Surveillances` SET `IdEnseignant` = ?, `CodeSeances` = ?, `NomSalle` = ?, `HeureDebut` = ?, `HeureFin` = ?, `DateSurveillance` = ? WHERE ((`Id` = ?) AND ((? = 1 AND `IdEnseignant` IS NULL) OR (`IdEnseignant` = ?)) AND ((? = 1 AND `CodeSeances` IS NULL) OR (`CodeSeances` = ?)) AND ((? = 1 AND `NomSalle` IS NULL) OR (`NomSalle` = ?)) AND ((? = 1 AND `HeureDebut` IS NULL) OR (`HeureDebut` = ?)) AND ((? = 1 AND `HeureFin` IS NULL) OR (`HeureFin` = ?)) AND ((? = 1 AND `DateSurveillance` IS NULL) OR (`DateSurveillance` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IdEnseinant", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IdEnseinant", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IdEnseignant", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IdEnseignant", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CodeSeances", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CodeSeances", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("NomSalle", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NomSalle", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("HeureDebut", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HeureDebut", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("HeureFin", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HeureFin", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Date", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Date", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("DateSurveillance", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DateSurveillance", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_IdEnseinant", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IdEnseinant", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_IdEnseinant", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IdEnseinant", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_IdEnseignant", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IdEnseignant", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_IdEnseignant", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IdEnseignant", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CodeSeances", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CodeSeances", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CodeSeances", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CodeSeances", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_NomSalle", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NomSalle", global::System.Data.DataRowVersion.Original, true, null));
@@ -4418,8 +4419,8 @@ namespace Mini_Projet.MiniProjetDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_HeureDebut", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HeureDebut", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_HeureFin", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HeureFin", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_HeureFin", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HeureFin", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Date", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Date", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Date", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Date", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_DateSurveillance", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DateSurveillance", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_DateSurveillance", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DateSurveillance", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4435,8 +4436,8 @@ namespace Mini_Projet.MiniProjetDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, IdEnseinant, CodeSeances, NomSalle, HeureDebut, HeureFin, [Date] FROM " +
-                "Surveillances";
+            this._commandCollection[0].CommandText = "SELECT Id, IdEnseignant, CodeSeances, NomSalle, HeureDebut, HeureFin, DateSurveil" +
+                "lance FROM Surveillances";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -4497,11 +4498,11 @@ namespace Mini_Projet.MiniProjetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id, global::System.Nullable<int> Original_IdEnseinant, string Original_CodeSeances, string Original_NomSalle, string Original_HeureDebut, string Original_HeureFin, global::System.Nullable<global::System.DateTime> Original_Date) {
+        public virtual int Delete(int Original_Id, global::System.Nullable<int> Original_IdEnseignant, string Original_CodeSeances, string Original_NomSalle, string Original_HeureDebut, string Original_HeureFin, global::System.Nullable<global::System.DateTime> Original_DateSurveillance) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
-            if ((Original_IdEnseinant.HasValue == true)) {
+            if ((Original_IdEnseignant.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_IdEnseinant.Value));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_IdEnseignant.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -4539,9 +4540,9 @@ namespace Mini_Projet.MiniProjetDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_HeureFin));
             }
-            if ((Original_Date.HasValue == true)) {
+            if ((Original_DateSurveillance.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((System.DateTime)(Original_Date.Value));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((System.DateTime)(Original_DateSurveillance.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
@@ -4567,9 +4568,9 @@ namespace Mini_Projet.MiniProjetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> IdEnseinant, string CodeSeances, string NomSalle, string HeureDebut, string HeureFin, global::System.Nullable<global::System.DateTime> Date) {
-            if ((IdEnseinant.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(IdEnseinant.Value));
+        public virtual int Insert(global::System.Nullable<int> IdEnseignant, string CodeSeances, string NomSalle, string HeureDebut, string HeureFin, global::System.Nullable<global::System.DateTime> DateSurveillance) {
+            if ((IdEnseignant.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(IdEnseignant.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -4598,8 +4599,8 @@ namespace Mini_Projet.MiniProjetDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = ((string)(HeureFin));
             }
-            if ((Date.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(Date.Value));
+            if ((DateSurveillance.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(DateSurveillance.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
@@ -4624,9 +4625,9 @@ namespace Mini_Projet.MiniProjetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> IdEnseinant, string CodeSeances, string NomSalle, string HeureDebut, string HeureFin, global::System.Nullable<global::System.DateTime> Date, int Original_Id, global::System.Nullable<int> Original_IdEnseinant, string Original_CodeSeances, string Original_NomSalle, string Original_HeureDebut, string Original_HeureFin, global::System.Nullable<global::System.DateTime> Original_Date) {
-            if ((IdEnseinant.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(IdEnseinant.Value));
+        public virtual int Update(global::System.Nullable<int> IdEnseignant, string CodeSeances, string NomSalle, string HeureDebut, string HeureFin, global::System.Nullable<global::System.DateTime> DateSurveillance, int Original_Id, global::System.Nullable<int> Original_IdEnseignant, string Original_CodeSeances, string Original_NomSalle, string Original_HeureDebut, string Original_HeureFin, global::System.Nullable<global::System.DateTime> Original_DateSurveillance) {
+            if ((IdEnseignant.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(IdEnseignant.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -4655,16 +4656,16 @@ namespace Mini_Projet.MiniProjetDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(HeureFin));
             }
-            if ((Date.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(Date.Value));
+            if ((DateSurveillance.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(DateSurveillance.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Id));
-            if ((Original_IdEnseinant.HasValue == true)) {
+            if ((Original_IdEnseignant.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_IdEnseinant.Value));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_IdEnseignant.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
@@ -4702,9 +4703,9 @@ namespace Mini_Projet.MiniProjetDataSetTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_HeureFin));
             }
-            if ((Original_Date.HasValue == true)) {
+            if ((Original_DateSurveillance.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(Original_Date.Value));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(Original_DateSurveillance.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));

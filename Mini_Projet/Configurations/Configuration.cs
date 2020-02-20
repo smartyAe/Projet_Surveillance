@@ -25,6 +25,7 @@ namespace Mini_Projet
             try
             {
                 Txt_Email.Text = Conf.LireInfo().PropEmail;
+                Txt_Pass.Text = Conf.LireInfo().PropPass;
                 Txt_Folder.Text = Conf.LireInfo().PropDirPath;
             } 
              catch (Exception ex)
@@ -58,6 +59,7 @@ namespace Mini_Projet
                 {
                     Conf.PropDirPath = Txt_Folder.Text.ToString();
                     Conf.PropEmail = Txt_Email.Text.ToString();
+                    Conf.PropPass = Txt_Pass.Text.ToString();
                     Conf.EnregisterInfo();
                     MessageBox.Show("Modification réussie", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

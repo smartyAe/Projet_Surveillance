@@ -5,6 +5,7 @@ using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Mini_Projet
 {
@@ -111,21 +112,26 @@ namespace Mini_Projet
 
         public DataTable PropAllSurveillances()
         {
-            MyOleDbCommand = new OleDbCommand("select Su.Id,SU.IdEnseignant, Su.CodeSeances, SU.NomSalle, Su.DateSurveillance, E.Nom as NomEns, E.Prenom as PrenomEns, E.Email, E.Statut, E.CodeDep, D.Nom as NomDep, Se.Nom as NomSeance, Se.HeureDebut, Se.HeureFin, Sa.Type From Surveillances as Su, Salles as Sa, Seances as Se, Enseignants as E, Departements as D where Su.NomSalle = Sa.Nom and Su.CodeSeances = Se.Code and Su.IdEnseignant = E.Id and E.CodeDep = D.Code;");
+            MyOleDbCommand = new OleDbCommand("select Su.Id,Su.IdEnseignant, Su.CodeSeances, Su.NomSalle, Su.DateSurveillance, E.Nom as NomEns, E.Prenom as PrenomEns, E.Email, E.Statut, E.CodeDep, D.Nom as NomDep, Se.Nom as NomSeance, Se.HeureDebut, Se.HeureFin, Sa.Type From Surveillances as Su, Salles as Sa, Seances as Se, Enseignants as E, Departements as D where Su.NomSalle = Sa.Nom and Su.CodeSeances = Se.Code and Su.IdEnseignant = E.Id and E.CodeDep = D.Code;");
 
             dt = DBConnection.FunctionToRead(MyOleDbCommand);
 
             return dt;
         }
 
-        public DataTable GetSurveillancesByEnseignant(int IdEns)
+        public DataTable GetSurveillancesByEnseignant(int IdEnsa)
         {
-            MyOleDbCommand = new OleDbCommand("select Su.Id,SU.IdEnseignant, Su.CodeSeances, SU.NomSalle, Su.DateSurveillance, E.Nom as NomEns, E.Prenom as PrenomEns, E.Email, E.Statut, E.CodeDep, D.Nom as NomDep, Se.Nom as NomSeance, Se.HeureDebut, Se.HeureFin, Sa.Type From Surveillances as Su, Salles as Sa, Seances as Se, Enseignants as E, Departements as D where IdEnseignant = @IdEns and Su.NomSalle = Sa.Nom and Su.CodeSeances = Se.Code and Su.IdEnseignant = E.Id and E.CodeDep = D.Code;");
+             
+           // MessageBox.Show("Idens="+IdEnsa.ToString());
+            MyOleDbCommand = new OleDbCommand("select Su.Id, Su.IdEnseignant, Su.CodeSeances, Su.NomSalle, Su.DateSurveillance, E.Nom as NomEns, E.Prenom as PrenomEns, E.Email, E.Statut, E.CodeDep , D.Nom as NomDep, Se.Nom as NomSeance, Se.HeureDebut, Se.HeureFin,Sa.Nom, Sa.Type From  [Surveillances] as Su, Salles as Sa, Seances as Se,  Enseignants as E, Departements as D  where Su.NomSalle = Sa.Nom and Su.CodeSeances = Se.Code and Su.IdEnseignant = E.Id  and E.CodeDep = D.Code  and Su.IdEnseignant =@IdEns;");
+            //MyOleDbCommand = new OleDbCommand("select E.Id, E.Nom, E.Prenom, E.Email, E.Statut, E.CodeDep, D.Nom as NomDep from[Enseignants] as E, Departements as D where E.Id = @IdEns");
 
-            MyOleDbCommand.Parameters.Add("@IdEns", OleDbType.Numeric).Value = IdEns;
-
+            MyOleDbCommand.Parameters.Add("@IdEns", OleDbType.Integer).Value = IdEnsa;
+            //MessageBox.Show(MyOleDbCommand.Parameters[0].Value.ToString() + " " + MyOleDbCommand.Parameters[0].OleDbType + " " + MyOleDbCommand.Parameters[0].ParameterName);
             dt = DBConnection.FunctionToRead(MyOleDbCommand);
-
+            
+              // MessageBox.Show(dt.Rows.Count.ToString());
+            
             return dt;
         }
 
@@ -135,7 +141,7 @@ namespace Mini_Projet
             MyOleDbCommand = new OleDbCommand("insert into Surveillance (IdEnseignant, CodeSeance, NomSalle, HeureDebut, HeureFin, DateSurveillance)" +
                                           "values (@IdEnseignant, @CodeSeance, @NomSalle, @HeureDebut, @HeureFin, @DateSurveillance)");
 
-            MyOleDbCommand.Parameters.Add("@IdEnseignant", OleDbType.Numeric).Value = newSurveillances.PropEnseignant.PropId;
+            MyOleDbCommand.Parameters.Add("@IdEnseignant", OleDbType.Integer).Value = newSurveillances.PropEnseignant.PropId;
 
             MyOleDbCommand.Parameters.Add("@CodeSeance", OleDbType.VarChar).Value = newSurveillances.PropSeance.PropCode;
 
@@ -143,7 +149,7 @@ namespace Mini_Projet
 
             MyOleDbCommand.Parameters.Add("@HeureDebut", OleDbType.VarChar).Value = newSurveillances.PropSeance.PropHeureDebut;
 
-            MyOleDbCommand.Parameters.Add("@HeureFin", OleDbType.Numeric).Value = newSurveillances.PropSeance.PropHeureFin;
+            MyOleDbCommand.Parameters.Add("@HeureFin", OleDbType.VarChar).Value = newSurveillances.PropSeance.PropHeureFin;
 
             MyOleDbCommand.Parameters.Add("@DateSurveillance", OleDbType.Date).Value = (newSurveillances.PropDateSurveillance != null) ? newSurveillances.PropDateSurveillance : Convert.DBNull;
 
@@ -159,9 +165,9 @@ namespace Mini_Projet
             MyOleDbCommand = new OleDbCommand("update Surveillance set IdEnseignant = @IdEnseignant, CodeSeance = @CodeSeance, NomSalle = @NomSalle, " +
                                           "HeureDebut = @HeureDebut, DateSurveillance = @DateSurveillance, HeureFin = @HeureFin  where Id = @OldId");
 
-            MyOleDbCommand.Parameters.Add("@OldId", OleDbType.Numeric).Value = newSurveillances.PropId;
+            MyOleDbCommand.Parameters.Add("@OldId", OleDbType.Integer).Value = newSurveillances.PropId;
 
-            MyOleDbCommand.Parameters.Add("@IdEnseignant", OleDbType.Numeric).Value = newSurveillances.PropEnseignant.PropId;
+            MyOleDbCommand.Parameters.Add("@IdEnseignant", OleDbType.Integer).Value = newSurveillances.PropEnseignant.PropId;
 
             MyOleDbCommand.Parameters.Add("@CodeSeance", OleDbType.VarChar).Value = newSurveillances.PropSeance.PropCode;
 
@@ -171,7 +177,7 @@ namespace Mini_Projet
 
             MyOleDbCommand.Parameters.Add("@DateSurveillance", OleDbType.Date).Value = (newSurveillances.PropDateSurveillance != null) ? newSurveillances.PropDateSurveillance : Convert.DBNull;
 
-            MyOleDbCommand.Parameters.Add("@HeureFin", OleDbType.Numeric).Value = newSurveillances.PropSeance.PropHeureFin;
+            MyOleDbCommand.Parameters.Add("@HeureFin", OleDbType.VarChar).Value = newSurveillances.PropSeance.PropHeureFin;
 
 
             return DBConnection.FunctionToWrite(MyOleDbCommand);
@@ -183,7 +189,7 @@ namespace Mini_Projet
 
             MyOleDbCommand = new OleDbCommand("delete from Surveillance where Id = @IdSurv");
 
-            MyOleDbCommand.Parameters.Add("@IdSurv", OleDbType.Numeric).Value = IdSurv;
+            MyOleDbCommand.Parameters.Add("@IdSurv", OleDbType.Integer).Value = IdSurv;
 
             return DBConnection.FunctionToWrite(MyOleDbCommand);
 

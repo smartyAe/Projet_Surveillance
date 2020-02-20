@@ -42,6 +42,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Txt_Email = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Txt_Pass = new System.Windows.Forms.TextBox();
             this.statusStrip1.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -52,7 +54,7 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(20, 323);
+            this.statusStrip1.Location = new System.Drawing.Point(20, 392);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(517, 22);
             this.statusStrip1.TabIndex = 2;
@@ -66,7 +68,7 @@
             // 
             // Btn_Annuler
             // 
-            this.Btn_Annuler.Location = new System.Drawing.Point(170, 215);
+            this.Btn_Annuler.Location = new System.Drawing.Point(170, 280);
             this.Btn_Annuler.Name = "Btn_Annuler";
             this.Btn_Annuler.Size = new System.Drawing.Size(75, 23);
             this.Btn_Annuler.TabIndex = 5;
@@ -76,7 +78,7 @@
             // 
             // Btn_Validate
             // 
-            this.Btn_Validate.Location = new System.Drawing.Point(271, 215);
+            this.Btn_Validate.Location = new System.Drawing.Point(271, 280);
             this.Btn_Validate.Name = "Btn_Validate";
             this.Btn_Validate.Size = new System.Drawing.Size(75, 23);
             this.Btn_Validate.TabIndex = 6;
@@ -95,7 +97,7 @@
             this.metroPanel1.HorizontalScrollbarSize = 10;
             this.metroPanel1.Location = new System.Drawing.Point(23, 63);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(509, 255);
+            this.metroPanel1.Size = new System.Drawing.Size(509, 324);
             this.metroPanel1.TabIndex = 8;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
@@ -106,7 +108,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.Btn_Browser);
             this.groupBox2.Controls.Add(this.Txt_Folder);
-            this.groupBox2.Location = new System.Drawing.Point(18, 108);
+            this.groupBox2.Location = new System.Drawing.Point(18, 173);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(469, 96);
             this.groupBox2.TabIndex = 8;
@@ -141,11 +143,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.Txt_Pass);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.Txt_Email);
             this.groupBox1.Location = new System.Drawing.Point(18, 15);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(469, 87);
+            this.groupBox1.Size = new System.Drawing.Size(469, 136);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Email";
@@ -166,11 +170,28 @@
             this.Txt_Email.Size = new System.Drawing.Size(260, 20);
             this.Txt_Email.TabIndex = 0;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 88);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Mot de passe";
+            // 
+            // Txt_Pass
+            // 
+            this.Txt_Pass.Location = new System.Drawing.Point(190, 85);
+            this.Txt_Pass.Name = "Txt_Pass";
+            this.Txt_Pass.PasswordChar = '*';
+            this.Txt_Pass.Size = new System.Drawing.Size(260, 20);
+            this.Txt_Pass.TabIndex = 2;
+            // 
             // Configuration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(557, 365);
+            this.ClientSize = new System.Drawing.Size(557, 434);
             this.Controls.Add(this.metroPanel1);
             this.Controls.Add(this.statusStrip1);
             this.IsMdiContainer = true;
@@ -204,5 +225,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox Txt_Email;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox Txt_Pass;
     }
 }

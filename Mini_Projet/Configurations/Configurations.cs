@@ -13,6 +13,7 @@ namespace Mini_Projet.Configurations
     {
         private string DirPath;
         private string Email;
+        private string Pass;
 
         public string PropDirPath
         {
@@ -25,7 +26,12 @@ namespace Mini_Projet.Configurations
             get { return Email; }
             set { Email = value; }
         }
-        
+        public string PropPass
+        {
+            get { return Pass; }
+            set { Pass = value; }
+        }
+
         public void EnregisterInfo( )
         {
             BinaryFormatter formatter = new BinaryFormatter();

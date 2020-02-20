@@ -28,27 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.surveillancesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.miniProjetDataSet1 = new Mini_Projet.MiniProjetDataSet1();
-            this.surveillancesTableAdapter = new Mini_Projet.MiniProjetDataSet1TableAdapters.SurveillancesTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.surveillancesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.miniProjetDataSet1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // surveillancesBindingSource
-            // 
-            this.surveillancesBindingSource.DataMember = "Surveillances";
-            this.surveillancesBindingSource.DataSource = this.miniProjetDataSet1;
-            // 
-            // miniProjetDataSet1
-            // 
-            this.miniProjetDataSet1.DataSetName = "MiniProjetDataSet1";
-            this.miniProjetDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // surveillancesTableAdapter
-            // 
-            this.surveillancesTableAdapter.ClearBeforeFill = true;
             // 
             // Programmes
             // 
@@ -58,15 +38,10 @@
             this.Name = "Programmes";
             this.Text = "Programmes";
             this.Load += new System.EventHandler(this.Programmes_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.surveillancesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.miniProjetDataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private MiniProjetDataSet1 miniProjetDataSet1;
-        private System.Windows.Forms.BindingSource surveillancesBindingSource;
-        private MiniProjetDataSet1TableAdapters.SurveillancesTableAdapter surveillancesTableAdapter;
     }
 }

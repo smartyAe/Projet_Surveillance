@@ -14,7 +14,7 @@ namespace Mini_Projet
     public partial class Surveillance : MetroFramework.Forms.MetroForm 
     {
         private int childFormNumber = 0;
-        private Mailling Mail;
+        private Mailling Mail=new Mailling();
         string ChoiceRecherche = "";
         int CurrentIndex = 0;
         DataTable CurrentDataTableEnseignant = new DataTable();
@@ -131,13 +131,7 @@ namespace Mini_Projet
 
         private void EmailATousLesEnseigantsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach(Enseignants E in Enseignants)
-            {
-                Mail = new Mailling();
-                Mail.Propadresses = E.PropEmail;
-                Mail.Propmessage = "";
-                Mail.Propjoin = "";
-            }
+            
         }
 
         private void EmailAuxEnseignantsSelectionnésToolStripMenuItem_Click(object sender, EventArgs e)
@@ -353,7 +347,7 @@ namespace Mini_Projet
                 else
                     LbValueDep.Text = "Pas de departement";
 
-                if (CurrentEnseignant.PropStatut.ToLower().Trim().Equals("termine"))
+                if (CurrentEnseignant.PropStatut.ToLower().Trim().Equals("Terminé"))
                     CbEtat.SelectedItem = CbEtat.Items[1];
                 else
                     CbEtat.SelectedItem = CbEtat.Items[0];
@@ -388,7 +382,12 @@ namespace Mini_Projet
         private void impressionToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             Programmes Pro = new Programmes();
-            Pro.Show();
+            Pro.ShowDialog();
+        }
+
+        private void aTousLesEnseigantsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Mail.FillMailEnseignants();
         }
     }
 }

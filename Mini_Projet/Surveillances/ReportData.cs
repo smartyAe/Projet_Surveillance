@@ -50,6 +50,14 @@ namespace Mini_Projet
             // Add the Column to the DataColumnCollection.
             CurrentDataTableEnseignant.Columns.Add(ColumnLigneReportData);
 
+            ColumnLigneReportData = new DataColumn();
+            ColumnLigneReportData.DataType = System.Type.GetType("System.Boolean");
+            ColumnLigneReportData.ColumnName = "Selectionner";
+            ColumnLigneReportData.ReadOnly = false;
+            ColumnLigneReportData.Unique = false;
+            // Add the Column to the DataColumnCollection.
+            CurrentDataTableEnseignant.Columns.Add(ColumnLigneReportData);
+
             return CurrentDataTableEnseignant;
 
 
@@ -219,6 +227,7 @@ namespace Mini_Projet
                 if (DateText != null)
                 {
                     DateSurveillance = DateTime.Parse(DateText);
+                     
                 }
 
 

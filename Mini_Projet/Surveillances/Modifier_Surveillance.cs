@@ -16,5 +16,7 @@ namespace Mini_Projet
         {
             InitializeComponent();
         }
+
+        public object CurrentSurveillance { get; internal set; }
     }
 }

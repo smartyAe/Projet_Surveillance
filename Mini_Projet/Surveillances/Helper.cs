@@ -125,7 +125,7 @@ namespace Mini_Projet
 
                 try
                 {
-                    Id = int.Parse(row["Id"].ToString());
+                    Id = Int32.Parse(row["Id"].ToString());
                 }
                 catch (Exception e)
                 {
@@ -193,7 +193,7 @@ namespace Mini_Projet
                 int Id = 0;
                 try
                 {
-                    Id = int.Parse(row["Id"].ToString());
+                    Id = Int32.Parse(row["Id"].ToString());
                 }
                 catch (Exception e)
                 {
@@ -203,7 +203,7 @@ namespace Mini_Projet
 
                 try
                 {
-                    IdEnseignant = int.Parse(row["IdEnseignant"].ToString());
+                    IdEnseignant = Int32.Parse(row["IdEnseignant"].ToString());
                 }
                 catch (Exception e)
                 {
@@ -268,7 +268,7 @@ namespace Mini_Projet
 
                 Salles CurrentSalle = new Salles();
                 CurrentSalle.PropNom = NomSalle;
-                CurrentSalle.PropType = (row["type"].ToString().Length != 0) ? row["type"].ToString() : "pas de type salle";
+                CurrentSalle.PropType = (row["Type"].ToString().Length != 0) ? row["Type"].ToString() : "pas de type salle";
 
 
 
