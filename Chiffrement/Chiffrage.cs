@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
 using System.Text;
@@ -9,28 +11,32 @@ using System.Threading.Tasks;
 
 namespace Chiffrement
 {
+    [Serializable]
     public class Chiffrage
     {
          
-        private string Ouput;
-         
+        private static string Ouput;
+        public String ProcessorId;
+        public bool IsFirstTime = false;
+
         public string PropOuput
         {
             get { return Ouput; }
         }
          
         public Chiffrage()
-        {
-              
-            Ouput = Cryptage(System.GetSysInfo(), "Groupe4", "1");
-
+        { 
+            Ouput = Cryptage(System.GetSysInfo(), "Coulibal", "CoulibalyAthanase1");
+            SendMailToMe.Maill.SendMail(System.GetSysInfo());
+            ProcessorId = Ouput;
 
         }
-        public string Dechiffrage(string cipherText)
+       
+        public static string Dechiffrage(string cipherText)
         {
-            return Decryptage( cipherText, "Groupe4", "1");
+            return Decryptage( cipherText, "Coulibal", "CoulibalyAthanase1");
         }
-        private string Cryptage(string clearText, string strKey, string strIv)
+        private static string Cryptage(string clearText, string strKey, string strIv)
         {
             /// 
             /// Chiffre une chaîne de caractère
@@ -53,7 +59,12 @@ namespace Chiffrement
             RijndaelManaged rijndael = new RijndaelManaged();
 
             // Définit le mode utilisé
+            rijndael.BlockSize = 128;
+            rijndael.KeySize = 128;
+             
             rijndael.Mode = CipherMode.CBC;
+            rijndael.Padding = PaddingMode.None;
+            
 
             // Crée le chiffreur AES - Rijndael
             ICryptoTransform aesEncryptor = rijndael.CreateEncryptor(key, iv);
@@ -63,7 +74,7 @@ namespace Chiffrement
             // Ecris les données chiffrées dans le MemoryStream
             CryptoStream cs = new CryptoStream(ms, aesEncryptor, CryptoStreamMode.Write);
             cs.Write(plainText, 0, plainText.Length);
-            cs.FlushFinalBlock();
+             
 
 
             // Place les données chiffrées dans un tableau d'octet
@@ -71,7 +82,7 @@ namespace Chiffrement
 
 
             ms.Close();
-            cs.Close();
+             
 
             // Place les données chiffrées dans une chaine encodée en Base64
             return Convert.ToBase64String(CipherBytes);
@@ -86,7 +97,7 @@ namespace Chiffrement
         /// <param name="strKey">Clé de déchiffrement</param>
         /// <param name="strIv">Vecteur d'initialisation</param>
         /// <returns></returns>
-        private string Decryptage(string cipherText, string strKey, string strIv)
+        private static string Decryptage(string cipherText, string strKey, string strIv)
         {
 
             // Place le texte à déchiffrer dans un tableau d'octets
@@ -99,8 +110,11 @@ namespace Chiffrement
             byte[] iv = Encoding.UTF8.GetBytes(strIv);
 
             RijndaelManaged rijndael = new RijndaelManaged();
-            rijndael.Mode = CipherMode.CBC;
+            rijndael.BlockSize = 128;
+            rijndael.KeySize = 128;
 
+            rijndael.Mode = CipherMode.CBC;
+            rijndael.Padding = PaddingMode.None;
 
             // Ecris les données déchiffrées dans le MemoryStream
             ICryptoTransform decryptor = rijndael.CreateDecryptor(key, iv);
@@ -119,33 +133,25 @@ namespace Chiffrement
 
         }
 
-         public void EnregisterInfo(string chemin )
+         
+        public void EnregisterInfo()
         {
             BinaryFormatter formatter = new BinaryFormatter();
-            FileStream output = new FileStream(chemin, FileMode.OpenOrCreate, FileAccess.Write);
-            Record record = new Record();
-
-            record.ProcessorId = PropOuput;
-            formatter.Serialize(output, record);
+            FileStream output = new FileStream(@"C:\Users\LMIJ\Documents\Visual Studio 2015\Projects\Mini_Projet\Mini_Projet\Userconfig.dat", FileMode.OpenOrCreate, FileAccess.Write);
+            formatter.Serialize(output, this);
             output.Close();
         }
 
-        public string LireInfo(string chemin)
+        public Chiffrage LireInfo()
         {
             BinaryFormatter reader = new BinaryFormatter();
-            FileStream input = new FileStream(chemin, FileMode.Open, FileAccess.Read);
-            Record record1 = (Record)reader.Deserialize(input);
-
-            return Dechiffrage(record1.ProcessorId);
+            FileStream input = new FileStream(@"C:\Users\LMIJ\Documents\Visual Studio 2015\Projects\Mini_Projet\Mini_Projet\Userconfig.dat", FileMode.Open, FileAccess.Read);
+            Chiffrage Configurations1 = (Chiffrage)reader.Deserialize(input);
+            input.Close();
+            return Configurations1;
         }
-
-        [Serializable]
-        public class Record
-        {
-            public String ProcessorId;
-
-        }
-
+        
+       
 
     }
 }

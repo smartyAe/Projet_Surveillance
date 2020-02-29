@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Chiffrement;
 namespace Mini_Projet
 {
     static class Program
@@ -14,9 +14,16 @@ namespace Mini_Projet
         [STAThread]
         static void Main()
         {
+            Chiffrage codage = new Chiffrage();
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Home());
+            if(codage.LireInfo().IsFirstTime )
+            {
+                Application.Run(new ActivateKey( ));
+            }
+            else
+                Application.Run(new Home());
         }
     }
 }

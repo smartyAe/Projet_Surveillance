@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Chiffrement;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,6 +15,8 @@ namespace Mini_Projet.Configurations
         private string DirPath;
         private string Email;
         private string Pass;
+        private string Key;
+        public bool IsFirstTime = false;
 
         public string PropDirPath
         {
@@ -30,6 +33,12 @@ namespace Mini_Projet.Configurations
         {
             get { return Pass; }
             set { Pass = value; }
+        }
+
+        public string PropKey
+        {
+            get { return Chiffrage.Dechiffrage(Key); }
+            set {Key = value; }
         }
 
         public void EnregisterInfo( )
