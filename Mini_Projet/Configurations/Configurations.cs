@@ -40,11 +40,16 @@ namespace Mini_Projet.Configurations
             get { return Chiffrage.Dechiffrage(Key); }
             set {Key = value; }
         }
+        private string folderPath;
 
+        public Configurations(string chemin)
+        {
+            this.folderPath = chemin;
+        }
         public void EnregisterInfo( )
         {
             BinaryFormatter formatter = new BinaryFormatter();
-            FileStream output = new FileStream(@"C:\Users\LMIJ\Documents\Visual Studio 2015\Projects\Mini_Projet\Mini_Projet\Userconfig.dat", FileMode.OpenOrCreate, FileAccess.Write);
+            FileStream output = new FileStream(@""+folderPath+"\\Userconfig.dat", FileMode.OpenOrCreate, FileAccess.Write);
             formatter.Serialize(output, this);
             output.Close();
         }
@@ -52,7 +57,7 @@ namespace Mini_Projet.Configurations
         public Configurations LireInfo()
         {
             BinaryFormatter reader = new BinaryFormatter();
-            FileStream input = new FileStream(@"C:\Users\LMIJ\Documents\Visual Studio 2015\Projects\Mini_Projet\Mini_Projet\Userconfig.dat", FileMode.Open, FileAccess.Read);
+            FileStream input = new FileStream(@"" + folderPath + "\\Userconfig.dat", FileMode.Open, FileAccess.Read);
             Configurations Configurations1 = (Configurations)reader.Deserialize(input);
             input.Close();
             return Configurations1;

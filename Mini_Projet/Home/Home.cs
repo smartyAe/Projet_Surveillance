@@ -12,7 +12,7 @@ namespace Mini_Projet
 {
     public partial class Home : MetroFramework.Forms.MetroForm
     {
-        private int childFormNumber = 0;
+         
 
         public Home()
         {

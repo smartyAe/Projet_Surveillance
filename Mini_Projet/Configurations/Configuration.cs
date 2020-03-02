@@ -17,7 +17,7 @@ namespace Mini_Projet
         public Configuration()
         {
             InitializeComponent();
-            Conf = new Configurations.Configurations();
+            Conf = new Configurations.Configurations(Application.StartupPath);
         }
 
         private void Configuration_Load(object sender, EventArgs e)

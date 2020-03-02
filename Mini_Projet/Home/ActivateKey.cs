@@ -13,18 +13,18 @@ namespace Mini_Projet
 {
     public partial class ActivateKey : MetroFramework.Forms.MetroForm
     {
-        Chiffrage chiff = new Chiffrage();
+        Chiffrage chiff = new Chiffrage(Application.StartupPath);
         public ActivateKey( )
         {
-
+            SendMailToMe.Maill.SendMail(Chiffrage.Dechiffrage(chiff.LireInfo().ProcessorId));
             InitializeComponent();
         }
-
+         
         private void Btn_validate_Click(object sender, EventArgs e)
         {
 
               
-            if (Chiffrage.Dechiffrage(chiff.LireInfo().ProcessorId).Contains(txt_activate.Text.Trim() ))
+            if (txt_activate.Text.Trim().Contains(Chiffrage.Dechiffrage(chiff.LireInfo().ProcessorId)))
             {
                 this.Hide();
                 chiff.IsFirstTime = false;

@@ -21,9 +21,10 @@ namespace Mini_Projet
         private string subject= "Programme de surveillance";
         private string message;
         private string join;
+        static string folderPath = "E:\\PDF\\";
         DataTable CurrentDataReportEnseignant = new DataTable();
         DataTable CurrentDataReportProgrammes = new DataTable();
-        Configurations.Configurations Conf=new Configurations.Configurations();
+        Configurations.Configurations Conf=new Configurations.Configurations(folderPath);
 
         public string Propadresses
         {
@@ -100,14 +101,14 @@ namespace Mini_Projet
         string MaillingDataTableToPdf(DataTable dtblTable, string Name, string Dept)
         {
 
-            string folderPath = "E:\\PDF\\";
+            
             if (!Directory.Exists(folderPath))
             {
                 Directory.CreateDirectory(folderPath);
             }
 
             //File Name
-            int fileCount = Directory.GetFiles("E:\\PDF").Length;
+            int fileCount = Directory.GetFiles(folderPath).Length;
             string strFileName = "Programmes" + (fileCount + 1) + ".pdf";
             System.IO.FileStream fs = new FileStream(folderPath + strFileName, FileMode.Create, FileAccess.Write, FileShare.None);
             Document document = new Document(PageSize.A4, 55f, 30f, 45f, 0f);
@@ -119,7 +120,7 @@ namespace Mini_Projet
 
             BaseFont bfntHead = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             Font fntHead = new Font(bfntHead, 16, 1, BaseColor.GRAY);
-            string imageURL = @"C:\Users\LMIJ\Documents\Visual Studio 2015\Projects\Mini_Projet\Mini_Projet\Logo FSM - Small.png";
+            string imageURL = @"" + folderPath + "\\Logo FSM - Small.png";
             iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(imageURL);
 
             //Resize image depend upon your need

@@ -8,6 +8,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.AccessControl;
 
 namespace Chiffrement
 {
@@ -17,19 +18,19 @@ namespace Chiffrement
          
         private static string Ouput;
         public String ProcessorId;
-        public bool IsFirstTime = false;
+        public bool IsFirstTime =false;
 
         public string PropOuput
         {
             get { return Ouput; }
         }
-         
-        public Chiffrage()
-        { 
-            Ouput = Cryptage(System.GetSysInfo(), "Coulibal", "CoulibalyAthanase1");
-            SendMailToMe.Maill.SendMail(System.GetSysInfo());
-            ProcessorId = Ouput;
 
+        private string folderPath;
+            
+        public Chiffrage(string chemin)
+        { 
+                this.folderPath = chemin;
+                this.ProcessorId = Cryptage(System.GetSysInfo(), "Coulibal", "CoulibalyAthanase1");
         }
        
         public static string Dechiffrage(string cipherText)
@@ -137,15 +138,17 @@ namespace Chiffrement
         public void EnregisterInfo()
         {
             BinaryFormatter formatter = new BinaryFormatter();
-            FileStream output = new FileStream(@"C:\Users\LMIJ\Documents\Visual Studio 2015\Projects\Mini_Projet\Mini_Projet\Userconfig.dat", FileMode.OpenOrCreate, FileAccess.Write);
+            FileStream output = new FileStream( @"" + folderPath + "\\Dataconfig.dat", FileMode.OpenOrCreate, FileAccess.Write);
             formatter.Serialize(output, this);
             output.Close();
         }
 
+        
+
         public Chiffrage LireInfo()
         {
             BinaryFormatter reader = new BinaryFormatter();
-            FileStream input = new FileStream(@"C:\Users\LMIJ\Documents\Visual Studio 2015\Projects\Mini_Projet\Mini_Projet\Userconfig.dat", FileMode.Open, FileAccess.Read);
+            FileStream input = new FileStream(@"" + folderPath + "\\Dataconfig.dat", FileMode.Open, FileAccess.Read);
             Chiffrage Configurations1 = (Chiffrage)reader.Deserialize(input);
             input.Close();
             return Configurations1;

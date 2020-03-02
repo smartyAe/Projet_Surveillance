@@ -14,12 +14,14 @@ namespace Mini_Projet
         [STAThread]
         static void Main()
         {
-            Chiffrage codage = new Chiffrage();
-            
+           
+            Chiffrage codage = new Chiffrage(Application.StartupPath);
+             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            if(codage.LireInfo().IsFirstTime )
+            if(codage.LireInfo().IsFirstTime==true )
             {
+                codage.EnregisterInfo();
                 Application.Run(new ActivateKey( ));
             }
             else

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Chiffrement
 {
-    class System
+    public class System
     { 
         private static string strProcessorId = string.Empty;
         private static string strSystemName = string.Empty;
