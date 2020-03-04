@@ -16,12 +16,12 @@ namespace Mini_Projet
         {
            
             Chiffrage codage = new Chiffrage(Application.StartupPath);
+          
              
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            if(codage.LireInfo().IsFirstTime==true )
-            {
-                codage.EnregisterInfo();
+            Application.SetCompatibleTextRenderingDefault(false); 
+            if( !codage.ProcessorId.Equals(codage.LireInfo().ProcessorId) )
+            { 
                 Application.Run(new ActivateKey( ));
             }
             else

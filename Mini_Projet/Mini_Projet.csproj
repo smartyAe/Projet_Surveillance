@@ -211,7 +211,6 @@
     <Compile Include="Surveillances\Surveillance.Designer.cs">
       <DependentUpon>Surveillance.cs</DependentUpon>
     </Compile>
-    <Compile Include="Surveillances\SurveillanceRecordForProgrammes.cs" />
     <Compile Include="Surveillances\Surveillances.cs" />
     <EmbeddedResource Include="Enseignants\Ajouter_Enseignant.resx">
       <DependentUpon>Ajouter_Enseignant.cs</DependentUpon>

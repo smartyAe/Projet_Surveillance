@@ -30,6 +30,7 @@ namespace Chiffrement
         public Chiffrage(string chemin)
         { 
                 this.folderPath = chemin;
+                //Ouput = Chiffrement.System.GetSysInfo();
                 this.ProcessorId = Cryptage(System.GetSysInfo(), "Coulibal", "CoulibalyAthanase1");
         }
        

@@ -10,7 +10,7 @@ namespace Mini_Projet
 {
     class DBConnection
     {
-        private static string StrConnexion = @"Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Users\LMIJ\Documents\Visual Studio 2015\Projects\Mini_Projet\Mini_Projet\MiniProjet.accdb ";
+        private static string StrConnexion = @"Provider=Microsoft.ACE.OLEDB.12.0; Data Source="+Home.chemin+@"\MiniProjet.accdb ";
         private static OleDbConnection Connection = new OleDbConnection(StrConnexion);
 
 

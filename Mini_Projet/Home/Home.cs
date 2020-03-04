@@ -13,7 +13,7 @@ namespace Mini_Projet
     public partial class Home : MetroFramework.Forms.MetroForm
     {
          
-
+        public static string chemin=Application.StartupPath;
         public Home()
         {
             InitializeComponent();

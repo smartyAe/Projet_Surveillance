@@ -51,20 +51,26 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_8FE789A97E22456D9A47580940CE1DA0"
+        "MsmKey" = "8:_64E064E14D22479DAFE3F4EA45F35643"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_9BDBB3E43517FC1F0D7400FE2E324ACC"
-        "OwnerKey" = "8:_AA2159A2814EC2507BDD99529E83DF65"
+        "MsmKey" = "8:_6D06AFA373F1662D74C8B6753CE45A84"
+        "OwnerKey" = "8:_2C9C7E74468E407BBFAF18A3BA80071F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_9BDBB3E43517FC1F0D7400FE2E324ACC"
-        "OwnerKey" = "8:_2C9C7E74468E407BBFAF18A3BA80071F"
+        "MsmKey" = "8:_70E7B8BC5D6F42BDB9F929098409B410"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8FE789A97E22456D9A47580940CE1DA0"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -160,31 +166,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D6E632AA1CED430EB037AFCE05E516F8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_AA2159A2814EC2507BDD99529E83DF65"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9BDBB3E43517FC1F0D7400FE2E324ACC"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2C9C7E74468E407BBFAF18A3BA80071F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_18E2AC7EF265CDC61DCE46286A621F4A"
+        "OwnerKey" = "8:_DADAB2E3001409B99776CDFB49DC4C62"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -202,7 +184,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_DADAB2E3001409B99776CDFB49DC4C62"
+        "OwnerKey" = "8:_18E2AC7EF265CDC61DCE46286A621F4A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_2C9C7E74468E407BBFAF18A3BA80071F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_6D06AFA373F1662D74C8B6753CE45A84"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -232,7 +226,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_AA2159A2814EC2507BDD99529E83DF65"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_EA296B9A58B1E7967F6E3B332E7AAB49"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_D6E632AA1CED430EB037AFCE05E516F8"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -253,6 +259,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -269,6 +283,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -400,10 +430,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8FE789A97E22456D9A47580940CE1DA0"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_64E064E14D22479DAFE3F4EA45F35643"
             {
             "SourcePath" = "8:..\\..\\..\\..\\..\\Desktop\\icon\\browser_icon_129083.ico"
-            "TargetName" = "8:DS_Surveill"
+            "TargetName" = "8:browser_icon_129083.ico"
             "Tag" = "8:"
             "Folder" = "8:_77729FD949934387B7CDAD6D4FC90FFB"
             "Condition" = "8:"
@@ -420,14 +450,14 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9BDBB3E43517FC1F0D7400FE2E324ACC"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6D06AFA373F1662D74C8B6753CE45A84"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:SendMailToMe, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_9BDBB3E43517FC1F0D7400FE2E324ACC"
+                    "_6D06AFA373F1662D74C8B6753CE45A84"
                     {
                     "Name" = "8:SendMailToMe.dll"
                     "Attributes" = "3:512"
@@ -449,6 +479,46 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_70E7B8BC5D6F42BDB9F929098409B410"
+            {
+            "SourcePath" = "8:..\\Mini_Projet\\MiniProjet.accdb"
+            "TargetName" = "8:MiniProjet.accdb"
+            "Tag" = "8:"
+            "Folder" = "8:_77729FD949934387B7CDAD6D4FC90FFB"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8FE789A97E22456D9A47580940CE1DA0"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\..\\Desktop\\icon\\browser_icon_129083.ico"
+            "TargetName" = "8:DS_Surveill"
+            "Tag" = "8:"
+            "Folder" = "8:_77729FD949934387B7CDAD6D4FC90FFB"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A1728DCD89AAEFDD3FABAF5218F230BD"
@@ -787,7 +857,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Setup"
         "ProductCode" = "8:{D74326AD-5016-4CAA-8E33-1766EB685D7D}"
-        "PackageCode" = "8:{3362563E-7DC9-44A5-9914-425D930E4051}"
+        "PackageCode" = "8:{24BFF12B-5505-492C-9CFE-FB66097EE7C6}"
         "UpgradeCode" = "8:{D7741C02-B597-4002-8772-8E642FA8C1AF}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -907,20 +977,6 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_16F0CFCF356647FD9830CE05B6EEE91B"
-            {
-            "Name" = "8:Surveillance_Management"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_2C9C7E74468E407BBFAF18A3BA80071F"
-            "Folder" = "8:_BE3C5B29D48D4B4DB8A5A38099EA2BD6"
-            "WorkingFolder" = "8:_77729FD949934387B7CDAD6D4FC90FFB"
-            "Icon" = "8:"
-            "Feature" = "8:"
-            }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_4FB3FDC15D354731B6D34E06B69B4930"
             {
             "Name" = "8:Surveillance_Management"
@@ -932,7 +988,7 @@
             "Target" = "8:_2C9C7E74468E407BBFAF18A3BA80071F"
             "Folder" = "8:_BE3C5B29D48D4B4DB8A5A38099EA2BD6"
             "WorkingFolder" = "8:_77729FD949934387B7CDAD6D4FC90FFB"
-            "Icon" = "8:"
+            "Icon" = "8:_64E064E14D22479DAFE3F4EA45F35643"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_CEB1281A040041C59E8DCCDFBCBD2AED"
@@ -1350,7 +1406,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_2C9C7E74468E407BBFAF18A3BA80071F"
             {
-            "SourcePath" = "8:..\\Mini_Projet\\obj\\Release\\Mini_Projet.exe"
+            "SourcePath" = "8:..\\Mini_Projet\\obj\\Debug\\Mini_Projet.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_77729FD949934387B7CDAD6D4FC90FFB"
